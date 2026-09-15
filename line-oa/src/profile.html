@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>Profile 640x640</title>
+<link rel="stylesheet" href="brand.css">
+<style>
+html,body{width:640px;height:640px}
+body{
+  display:grid;place-items:center;position:relative;
+  background:
+    radial-gradient(circle at 50% 42%,rgba(63,109,255,.32),transparent 58%),
+    linear-gradient(160deg,#10224A,var(--navy-950));
+}
+/* LINE crops to a circle — keep the mark inside the safe inner ~70% */
+.mark{width:430px;height:auto;transform:translateX(8px)}
+.ring{position:absolute;inset:34px;border-radius:50%;border:2px solid rgba(138,168,255,.18)}
+</style>
+</head>
+<body>
+<span class="ring"></span>
+<svg class="mark" viewBox="40 195 432 122">
+  <defs>
+    <linearGradient id="fA" x1="47" x2="330" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#fff"/><stop offset=".48" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity=".05"/></linearGradient>
+    <linearGradient id="fB" x1="212" x2="468" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#fff"/><stop offset=".5" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity=".05"/></linearGradient>
+  </defs>
+  <path fill="#fff" d="M47 228 77 202H262L241 217H465L452 228Z"/>
+  <path fill="url(#fA)" d="M47 297 78 276H330V297Z"/>
+  <path fill="url(#fB)" d="M212 310 232 297H322L340 286H468V310Z"/>
+</svg>
+</body>
+</html>

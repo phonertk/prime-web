@@ -1,0 +1,189 @@
+{
+  "type": "carousel",
+  "contents": [
+    {
+      "type": "bubble", "size": "kilo",
+      "header": { "type": "box", "layout": "vertical", "backgroundColor": "#0A1428", "paddingAll": "20px",
+        "background": { "type": "linearGradient", "angle": "135deg", "startColor": "#10224A", "endColor": "#0A1428" },
+        "contents": [
+          { "type": "text", "text": "01 · CPU-WS", "color": "#8AA8FF", "size": "xxs", "weight": "bold" },
+          { "type": "text", "text": "คอมพิวเตอร์และโน้ตบุ๊ก", "color": "#FFFFFF", "size": "lg", "weight": "bold", "wrap": true, "margin": "sm" },
+          { "type": "box", "layout": "horizontal", "margin": "md", "contents": [
+            { "type": "box", "layout": "vertical", "contents": [], "width": "48px", "height": "4px", "backgroundColor": "#FFFFFF" },
+            { "type": "box", "layout": "vertical", "contents": [], "width": "60px", "height": "2px", "backgroundColor": "#FFFFFF55", "offsetTop": "2px" }
+          ] }
+        ] },
+      "body": { "type": "box", "layout": "vertical", "spacing": "md", "paddingAll": "20px", "backgroundColor": "#0E1D38",
+        "contents": [
+          { "type": "text", "text": "เครื่องสำนักงาน โน้ตบุ๊กองค์กร เวิร์กสเตชัน จัดสเปกตามงบได้", "color": "#C6D2E1", "size": "sm", "wrap": true },
+          { "type": "text", "text": "Notebook · Desktop · Workstation · All-in-One · จอมอนิเตอร์", "color": "#8FA6C0", "size": "xs", "wrap": true }
+        ] },
+      "footer": { "type": "box", "layout": "vertical", "paddingAll": "16px", "backgroundColor": "#0E1D38",
+        "contents": [
+          { "type": "button", "style": "primary", "color": "#3F6DFF", "height": "sm",
+            "action": { "type": "message", "label": "ขอราคาหมวดนี้", "text": "ขอใบเสนอราคา: คอมพิวเตอร์และโน้ตบุ๊ก" } }
+        ] }
+    },
+    {
+      "type": "bubble", "size": "kilo",
+      "header": { "type": "box", "layout": "vertical", "backgroundColor": "#0A1428", "paddingAll": "20px",
+        "background": { "type": "linearGradient", "angle": "135deg", "startColor": "#10224A", "endColor": "#0A1428" },
+        "contents": [
+          { "type": "text", "text": "02 · NET-SW", "color": "#8AA8FF", "size": "xxs", "weight": "bold" },
+          { "type": "text", "text": "อุปกรณ์เครือข่าย", "color": "#FFFFFF", "size": "lg", "weight": "bold", "wrap": true, "margin": "sm" },
+          { "type": "box", "layout": "horizontal", "margin": "md", "contents": [
+            { "type": "box", "layout": "vertical", "contents": [], "width": "48px", "height": "4px", "backgroundColor": "#FFFFFF" },
+            { "type": "box", "layout": "vertical", "contents": [], "width": "60px", "height": "2px", "backgroundColor": "#FFFFFF55", "offsetTop": "2px" }
+          ] }
+        ] },
+      "body": { "type": "box", "layout": "vertical", "spacing": "md", "paddingAll": "20px", "backgroundColor": "#0E1D38",
+        "contents": [
+          { "type": "text", "text": "สวิตช์ เราเตอร์ ไฟร์วอลล์ แอ็กเซสพอยต์ และงานเดินสายแลนทั้งระบบ", "color": "#C6D2E1", "size": "sm", "wrap": true },
+          { "type": "text", "text": "Switch · Router · Firewall · Access Point · Rack", "color": "#8FA6C0", "size": "xs", "wrap": true }
+        ] },
+      "footer": { "type": "box", "layout": "vertical", "paddingAll": "16px", "backgroundColor": "#0E1D38",
+        "contents": [
+          { "type": "button", "style": "primary", "color": "#3F6DFF", "height": "sm",
+            "action": { "type": "message", "label": "ขอราคาหมวดนี้", "text": "ขอใบเสนอราคา: อุปกรณ์เครือข่าย" } }
+        ] }
+    },
+    {
+      "type": "bubble", "size": "kilo",
+      "header": { "type": "box", "layout": "vertical", "backgroundColor": "#0A1428", "paddingAll": "20px",
+        "background": { "type": "linearGradient", "angle": "135deg", "startColor": "#10224A", "endColor": "#0A1428" },
+        "contents": [
+          { "type": "text", "text": "03 · LIC-SW", "color": "#8AA8FF", "size": "xxs", "weight": "bold" },
+          { "type": "text", "text": "ไลเซนส์ซอฟต์แวร์", "color": "#FFFFFF", "size": "lg", "weight": "bold", "wrap": true, "margin": "sm" },
+          { "type": "box", "layout": "horizontal", "margin": "md", "contents": [
+            { "type": "box", "layout": "vertical", "contents": [], "width": "48px", "height": "4px", "backgroundColor": "#FFFFFF" },
+            { "type": "box", "layout": "vertical", "contents": [], "width": "60px", "height": "2px", "backgroundColor": "#FFFFFF55", "offsetTop": "2px" }
+          ] }
+        ] },
+      "body": { "type": "box", "layout": "vertical", "spacing": "md", "paddingAll": "20px", "backgroundColor": "#0E1D38",
+        "contents": [
+          { "type": "text", "text": "ลิขสิทธิ์แท้สำหรับองค์กร ลงทะเบียนในชื่อบริษัท พร้อมเอกสารยืนยันสิทธิ์", "color": "#C6D2E1", "size": "sm", "wrap": true },
+          { "type": "text", "text": "Windows · Microsoft 365 · Antivirus · Adobe · Autodesk", "color": "#8FA6C0", "size": "xs", "wrap": true }
+        ] },
+      "footer": { "type": "box", "layout": "vertical", "paddingAll": "16px", "backgroundColor": "#0E1D38",
+        "contents": [
+          { "type": "button", "style": "primary", "color": "#3F6DFF", "height": "sm",
+            "action": { "type": "message", "label": "ขอราคาหมวดนี้", "text": "ขอใบเสนอราคา: ไลเซนส์ซอฟต์แวร์" } }
+        ] }
+    },
+    {
+      "type": "bubble", "size": "kilo",
+      "header": { "type": "box", "layout": "vertical", "backgroundColor": "#0A1428", "paddingAll": "20px",
+        "background": { "type": "linearGradient", "angle": "135deg", "startColor": "#10224A", "endColor": "#0A1428" },
+        "contents": [
+          { "type": "text", "text": "04 · SRV-ST", "color": "#8AA8FF", "size": "xxs", "weight": "bold" },
+          { "type": "text", "text": "เซิร์ฟเวอร์และสตอเรจ", "color": "#FFFFFF", "size": "lg", "weight": "bold", "wrap": true, "margin": "sm" },
+          { "type": "box", "layout": "horizontal", "margin": "md", "contents": [
+            { "type": "box", "layout": "vertical", "contents": [], "width": "48px", "height": "4px", "backgroundColor": "#FFFFFF" },
+            { "type": "box", "layout": "vertical", "contents": [], "width": "60px", "height": "2px", "backgroundColor": "#FFFFFF55", "offsetTop": "2px" }
+          ] }
+        ] },
+      "body": { "type": "box", "layout": "vertical", "spacing": "md", "paddingAll": "20px", "backgroundColor": "#0E1D38",
+        "contents": [
+          { "type": "text", "text": "เซิร์ฟเวอร์แร็คและทาวเวอร์ NAS และระบบสำรองข้อมูลสำหรับธุรกิจ", "color": "#C6D2E1", "size": "sm", "wrap": true },
+          { "type": "text", "text": "Server · NAS · SAN · Backup · UPS", "color": "#8FA6C0", "size": "xs", "wrap": true }
+        ] },
+      "footer": { "type": "box", "layout": "vertical", "paddingAll": "16px", "backgroundColor": "#0E1D38",
+        "contents": [
+          { "type": "button", "style": "primary", "color": "#3F6DFF", "height": "sm",
+            "action": { "type": "message", "label": "ขอราคาหมวดนี้", "text": "ขอใบเสนอราคา: เซิร์ฟเวอร์และสตอเรจ" } }
+        ] }
+    },
+    {
+      "type": "bubble", "size": "kilo",
+      "header": { "type": "box", "layout": "vertical", "backgroundColor": "#0A1428", "paddingAll": "20px",
+        "background": { "type": "linearGradient", "angle": "135deg", "startColor": "#10224A", "endColor": "#0A1428" },
+        "contents": [
+          { "type": "text", "text": "05 · SEC-CAM", "color": "#8AA8FF", "size": "xxs", "weight": "bold" },
+          { "type": "text", "text": "กล้องและระบบความปลอดภัย", "color": "#FFFFFF", "size": "lg", "weight": "bold", "wrap": true, "margin": "sm" },
+          { "type": "box", "layout": "horizontal", "margin": "md", "contents": [
+            { "type": "box", "layout": "vertical", "contents": [], "width": "48px", "height": "4px", "backgroundColor": "#FFFFFF" },
+            { "type": "box", "layout": "vertical", "contents": [], "width": "60px", "height": "2px", "backgroundColor": "#FFFFFF55", "offsetTop": "2px" }
+          ] }
+        ] },
+      "body": { "type": "box", "layout": "vertical", "spacing": "md", "paddingAll": "20px", "backgroundColor": "#0E1D38",
+        "contents": [
+          { "type": "text", "text": "กล้องวงจรปิด เครื่องบันทึก และระบบควบคุมการเข้าออก ติดตั้งพร้อมสอนใช้งาน", "color": "#C6D2E1", "size": "sm", "wrap": true },
+          { "type": "text", "text": "CCTV · NVR · Access Control · ระบบสแกนนิ้ว", "color": "#8FA6C0", "size": "xs", "wrap": true }
+        ] },
+      "footer": { "type": "box", "layout": "vertical", "paddingAll": "16px", "backgroundColor": "#0E1D38",
+        "contents": [
+          { "type": "button", "style": "primary", "color": "#3F6DFF", "height": "sm",
+            "action": { "type": "message", "label": "ขอราคาหมวดนี้", "text": "ขอใบเสนอราคา: กล้องและระบบความปลอดภัย" } }
+        ] }
+    },
+    {
+      "type": "bubble", "size": "kilo",
+      "header": { "type": "box", "layout": "vertical", "backgroundColor": "#0A1428", "paddingAll": "20px",
+        "background": { "type": "linearGradient", "angle": "135deg", "startColor": "#10224A", "endColor": "#0A1428" },
+        "contents": [
+          { "type": "text", "text": "06 · MOB-TAB", "color": "#8AA8FF", "size": "xxs", "weight": "bold" },
+          { "type": "text", "text": "โทรศัพท์และแท็บเล็ต", "color": "#FFFFFF", "size": "lg", "weight": "bold", "wrap": true, "margin": "sm" },
+          { "type": "box", "layout": "horizontal", "margin": "md", "contents": [
+            { "type": "box", "layout": "vertical", "contents": [], "width": "48px", "height": "4px", "backgroundColor": "#FFFFFF" },
+            { "type": "box", "layout": "vertical", "contents": [], "width": "60px", "height": "2px", "backgroundColor": "#FFFFFF55", "offsetTop": "2px" }
+          ] }
+        ] },
+      "body": { "type": "box", "layout": "vertical", "spacing": "md", "paddingAll": "20px", "backgroundColor": "#0E1D38",
+        "contents": [
+          { "type": "text", "text": "สมาร์ตโฟนและแท็บเล็ตสำหรับองค์กร พร้อมอุปกรณ์เสริมสำหรับทีมภาคสนาม", "color": "#C6D2E1", "size": "sm", "wrap": true },
+          { "type": "text", "text": "สมาร์ตโฟน · แท็บเล็ต · เคสกันกระแทก · อุปกรณ์เสริม", "color": "#8FA6C0", "size": "xs", "wrap": true }
+        ] },
+      "footer": { "type": "box", "layout": "vertical", "paddingAll": "16px", "backgroundColor": "#0E1D38",
+        "contents": [
+          { "type": "button", "style": "primary", "color": "#3F6DFF", "height": "sm",
+            "action": { "type": "message", "label": "ขอราคาหมวดนี้", "text": "ขอใบเสนอราคา: โทรศัพท์และแท็บเล็ต" } }
+        ] }
+    },
+    {
+      "type": "bubble", "size": "kilo",
+      "header": { "type": "box", "layout": "vertical", "backgroundColor": "#0A1428", "paddingAll": "20px",
+        "background": { "type": "linearGradient", "angle": "135deg", "startColor": "#10224A", "endColor": "#0A1428" },
+        "contents": [
+          { "type": "text", "text": "07 · PRP-ACC", "color": "#8AA8FF", "size": "xxs", "weight": "bold" },
+          { "type": "text", "text": "อุปกรณ์ต่อพ่วงและสิ้นเปลือง", "color": "#FFFFFF", "size": "lg", "weight": "bold", "wrap": true, "margin": "sm" },
+          { "type": "box", "layout": "horizontal", "margin": "md", "contents": [
+            { "type": "box", "layout": "vertical", "contents": [], "width": "48px", "height": "4px", "backgroundColor": "#FFFFFF" },
+            { "type": "box", "layout": "vertical", "contents": [], "width": "60px", "height": "2px", "backgroundColor": "#FFFFFF55", "offsetTop": "2px" }
+          ] }
+        ] },
+      "body": { "type": "box", "layout": "vertical", "spacing": "md", "paddingAll": "20px", "backgroundColor": "#0E1D38",
+        "contents": [
+          { "type": "text", "text": "ปริ้นเตอร์ หมึก และของใช้ประจำออฟฟิศ สั่งประจำได้ ไม่ต้องขอราคาใหม่ทุกครั้ง", "color": "#C6D2E1", "size": "sm", "wrap": true },
+          { "type": "text", "text": "Printer · หมึกพิมพ์ · Keyboard / Mouse · Docking", "color": "#8FA6C0", "size": "xs", "wrap": true }
+        ] },
+      "footer": { "type": "box", "layout": "vertical", "paddingAll": "16px", "backgroundColor": "#0E1D38",
+        "contents": [
+          { "type": "button", "style": "primary", "color": "#3F6DFF", "height": "sm",
+            "action": { "type": "message", "label": "ขอราคาหมวดนี้", "text": "ขอใบเสนอราคา: อุปกรณ์ต่อพ่วงและสิ้นเปลือง" } }
+        ] }
+    },
+    {
+      "type": "bubble", "size": "kilo",
+      "header": { "type": "box", "layout": "vertical", "backgroundColor": "#0A1428", "paddingAll": "20px",
+        "background": { "type": "linearGradient", "angle": "135deg", "startColor": "#10224A", "endColor": "#0A1428" },
+        "contents": [
+          { "type": "text", "text": "08 · GAM-HH", "color": "#8AA8FF", "size": "xxs", "weight": "bold" },
+          { "type": "text", "text": "เครื่องเล่นเกมพกพา", "color": "#FFFFFF", "size": "lg", "weight": "bold", "wrap": true, "margin": "sm" },
+          { "type": "box", "layout": "horizontal", "margin": "md", "contents": [
+            { "type": "box", "layout": "vertical", "contents": [], "width": "48px", "height": "4px", "backgroundColor": "#FFFFFF" },
+            { "type": "box", "layout": "vertical", "contents": [], "width": "60px", "height": "2px", "backgroundColor": "#FFFFFF55", "offsetTop": "2px" }
+          ] }
+        ] },
+      "body": { "type": "box", "layout": "vertical", "spacing": "md", "paddingAll": "20px", "backgroundColor": "#0E1D38",
+        "contents": [
+          { "type": "text", "text": "เครื่องเล่นเกมพกพาและอุปกรณ์เสริม เครื่องศูนย์ไทย สั่งจำนวนมากสำหรับหน้าร้านได้", "color": "#C6D2E1", "size": "sm", "wrap": true },
+          { "type": "text", "text": "เครื่องเล่นพกพา · จอย · เคส · การ์ดความจำ", "color": "#8FA6C0", "size": "xs", "wrap": true }
+        ] },
+      "footer": { "type": "box", "layout": "vertical", "paddingAll": "16px", "backgroundColor": "#0E1D38",
+        "contents": [
+          { "type": "button", "style": "primary", "color": "#3F6DFF", "height": "sm",
+            "action": { "type": "message", "label": "ขอราคาหมวดนี้", "text": "ขอใบเสนอราคา: เครื่องเล่นเกมพกพา" } }
+        ] }
+    }
+  ]
+}

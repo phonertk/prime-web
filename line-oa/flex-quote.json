@@ -1,0 +1,51 @@
+{
+  "type": "bubble",
+  "size": "mega",
+  "header": {
+    "type": "box", "layout": "vertical", "paddingAll": "24px", "backgroundColor": "#0A1428",
+    "background": { "type": "linearGradient", "angle": "135deg", "startColor": "#1A3270", "endColor": "#0A1428" },
+    "contents": [
+      { "type": "text", "text": "REQUEST A QUOTE", "color": "#8AA8FF", "size": "xxs", "weight": "bold" },
+      { "type": "text", "text": "ขอใบเสนอราคา", "color": "#FFFFFF", "size": "xxl", "weight": "bold", "margin": "sm" },
+      { "type": "text", "text": "ส่งรายการมาในแชทนี้ ตอบกลับภายใน 24 ชั่วโมง", "color": "#C6D2E1", "size": "sm", "wrap": true, "margin": "sm" },
+      { "type": "box", "layout": "horizontal", "margin": "lg", "contents": [
+        { "type": "box", "layout": "vertical", "contents": [], "width": "72px", "height": "5px", "backgroundColor": "#FFFFFF" },
+        { "type": "box", "layout": "vertical", "contents": [], "width": "110px", "height": "2px", "backgroundColor": "#FFFFFF55", "offsetTop": "3px" }
+      ] }
+    ]
+  },
+  "body": {
+    "type": "box", "layout": "vertical", "paddingAll": "24px", "spacing": "lg", "backgroundColor": "#0E1D38",
+    "contents": [
+      { "type": "text", "text": "พิมพ์ข้อมูลตามนี้แล้วส่งมาได้เลย", "color": "#FFFFFF", "size": "md", "weight": "bold" },
+      { "type": "box", "layout": "baseline", "spacing": "md", "contents": [
+        { "type": "text", "text": "01", "color": "#8AA8FF", "size": "sm", "flex": 0, "weight": "bold" },
+        { "type": "text", "text": "ชื่อบริษัท / ผู้ติดต่อ", "color": "#C6D2E1", "size": "sm", "wrap": true }
+      ] },
+      { "type": "box", "layout": "baseline", "spacing": "md", "contents": [
+        { "type": "text", "text": "02", "color": "#8AA8FF", "size": "sm", "flex": 0, "weight": "bold" },
+        { "type": "text", "text": "รายการสินค้า รุ่นหรือสเปก และจำนวน (ไม่มีเลขรุ่นก็ได้)", "color": "#C6D2E1", "size": "sm", "wrap": true }
+      ] },
+      { "type": "box", "layout": "baseline", "spacing": "md", "contents": [
+        { "type": "text", "text": "03", "color": "#8AA8FF", "size": "sm", "flex": 0, "weight": "bold" },
+        { "type": "text", "text": "ต้องการใช้งานวันไหน / ต้องการใบกำกับภาษีหรือเครดิตเทอมไหม", "color": "#C6D2E1", "size": "sm", "wrap": true }
+      ] },
+      { "type": "separator", "color": "#1E3557", "margin": "lg" },
+      { "type": "text", "text": "ส่งไฟล์ Excel / PDF / รูปใบสเปกในแชทนี้ได้เลย", "color": "#8FA6C0", "size": "xs", "wrap": true }
+    ]
+  },
+  "footer": {
+    "type": "box", "layout": "vertical", "spacing": "sm", "paddingAll": "20px", "backgroundColor": "#0E1D38",
+    "contents": [
+      { "type": "button", "style": "primary", "color": "#3F6DFF", "height": "sm",
+        "action": { "type": "message", "label": "ดูหมวดสินค้า", "text": "สินค้า" } },
+      { "type": "box", "layout": "horizontal", "spacing": "sm", "contents": [
+        { "type": "button", "style": "secondary", "color": "#1E3557", "height": "sm",
+          "action": { "type": "uri", "label": "โทรหาเรา", "uri": "tel:0642133140" } },
+        { "type": "button", "style": "secondary", "color": "#1E3557", "height": "sm",
+          "action": { "type": "uri", "label": "เว็บไซต์", "uri": "https://prime-web-silk.vercel.app/#quote" } }
+      ] }
+    ]
+  },
+  "styles": { "footer": { "separator": false } }
+}
