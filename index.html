@@ -254,8 +254,9 @@ a{color:inherit}
 @keyframes streakIn{to{transform:none;opacity:1}}
 
 .hero__in{position:relative;z-index:1}
-.hero__head{max-width:800px}
-.hero h1{font-family:var(--display);font-weight:700;font-size:clamp(36px,6.4vw,70px);line-height:1.08;letter-spacing:-.015em}
+.hero__head{max-width:1040px}
+.nowrap{white-space:nowrap}
+.hero h1{font-family:var(--display);font-weight:700;font-size:clamp(34px,5.4vw,64px);line-height:1.08;letter-spacing:-.015em}
 .hero h1 .hl{
   background:linear-gradient(90deg,#fff 0%,var(--blue-soft) 55%,var(--blue) 100%);
   -webkit-background-clip:text;background-clip:text;color:transparent;
@@ -520,37 +521,10 @@ a{color:inherit}
 .pcard__go:hover{color:var(--blue)}
 .pcard__go .arw{color:var(--blue)}
 
-/* why: navy promise card + staggered feature cards */
-.why{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,5vw,64px);align-items:start}
-@media(max-width:980px){.why{grid-template-columns:1fr}}
-.why .h2{font-size:clamp(28px,3.2vw,40px)}
-.promise{filter:drop-shadow(0 24px 40px rgba(10,20,40,.25))}
-.promise__in{
-  position:relative;overflow:hidden;color:#fff;
-  background:
-    radial-gradient(ellipse 80% 70% at 100% 0%,rgba(63,109,255,.35),transparent 65%),
-    linear-gradient(160deg,#132A52,var(--navy) 60%);
-  padding:clamp(28px,3.4vw,40px);
-  clip-path:polygon(0 0,calc(100% - 34px) 0,100% 34px,100% 100%,0 100%);
-}
-.promise__mark{position:absolute;right:-70px;bottom:-24px;width:360px;height:auto;opacity:.1;pointer-events:none}
-.promise__k{position:relative;font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--blue-soft)}
-.promise__n{position:relative;display:flex;align-items:baseline;gap:12px;margin-top:12px;line-height:1}
-.promise__n span{
-  font-family:var(--wide);font-size:clamp(64px,8vw,92px);letter-spacing:-.02em;
-  background:linear-gradient(90deg,#fff,var(--blue-soft));-webkit-background-clip:text;background-clip:text;color:transparent;
-}
-.promise__n small{font-family:var(--display);font-weight:600;font-size:clamp(20px,2.4vw,26px);color:var(--silver)}
-.promise__t{position:relative;font-family:var(--display);font-weight:600;font-size:19px;line-height:1.4;margin-top:16px;max-width:28ch}
-.promise__list{position:relative;list-style:none;margin:22px 0 28px;display:grid;gap:12px}
-.promise__list li{display:flex;align-items:center;gap:14px;color:var(--silver);font-size:15px}
-.promise__list li::before{
-  content:"";flex:none;width:16px;height:4px;margin-bottom:5px;
-  background:var(--blue-soft);transform:skewX(-45deg);box-shadow:6px 5px 0 0 rgba(138,168,255,.45);
-}
+/* why: feature cards */
 
-.feats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
-@media(min-width:981px){.feats>:nth-child(even){margin-top:44px}}
+.feats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+@media(max-width:1080px){.feats{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:560px){.feats{grid-template-columns:1fr}}
 .feat__in{
   position:relative;height:100%;background:linear-gradient(180deg,#FFFFFF 0%,#F4F7FF 100%);padding:clamp(24px,2.8vw,30px);box-shadow:inset 0 3px 0 var(--blue);
@@ -750,11 +724,6 @@ a.contact__v:hover{color:var(--blue-soft)}
   </defs>
 
   <!-- logo mark: white (dark grounds) and navy (light grounds) -->
-  <symbol id="mk" viewBox="40 195 432 122">
-    <path fill="#fff" d="M47 228 77 202H262L241 217H465L452 228Z"/>
-    <path fill="url(#markFadeA)" d="M47 297 78 276H330V297Z"/>
-    <path fill="url(#markFadeB)" d="M212 310 232 297H322L340 286H468V310Z"/>
-  </symbol>
   <symbol id="mk-ink" viewBox="40 195 432 122">
     <path fill="#0A1428" d="M47 228 77 202H262L241 217H465L452 228Z"/>
     <path fill="url(#inkFadeA)" d="M47 297 78 276H330V297Z"/>
@@ -826,11 +795,10 @@ a.contact__v:hover{color:var(--blue-soft)}
     <div class="hero__head">
       <p class="eyebrow eyebrow--light rise" data-en="Enterprise IT procurement">จัดหาอุปกรณ์ไอทีสำหรับองค์กร</p>
       <h1 class="rise">
-        <span data-en="Every port covered.">ของแท้ ครบทุกพอร์ต</span><br>
-        <span class="hl" data-en="Quoted in 24 hours.">เสนอราคาใน 24 ชั่วโมง</span>
+        <span data-en="Your one-stop IT supply centre.">ศูนย์รวมอุปกรณ์ไอที<span class="nowrap">ครบวงจร</span></span>
       </h1>
-      <p class="hero__sub rise" data-en="We supply computers, network equipment, software licences and IT hardware to organisations that need the genuine article, a valid warranty and complete procurement paperwork.">
-        เราจัดหาคอมพิวเตอร์ อุปกรณ์เครือข่าย ไลเซนส์ซอฟต์แวร์ และอุปกรณ์ไอทีทุกประเภท
+      <p class="hero__sub rise" data-en="Prime Trade Systems supplies computers, network equipment, software licences and IT hardware to organisations that need the genuine article, a valid warranty and complete procurement paperwork.">
+        Prime Trade Systems จัดหาคอมพิวเตอร์ อุปกรณ์เครือข่าย ไลเซนส์ซอฟต์แวร์ และอุปกรณ์ไอทีทุกประเภท
         ให้องค์กรที่ต้องการของแท้ มีใบรับประกัน และเอกสารจัดซื้อที่ครบถ้วน
       </p>
       <div class="hero__cta rise">
@@ -892,10 +860,6 @@ a.contact__v:hover{color:var(--blue-soft)}
         <span class="sec__num" aria-hidden="true">01</span>
         <p class="eyebrow" data-en="Product categories">หมวดสินค้า</p>
         <h2 class="h2" data-en="One supplier for the whole stack">สั่งจากที่เดียว จบทั้งระบบ</h2>
-        <p class="lede" data-en="From the desks out front to the rack out back. If it is not in stock we bring it in, with a firm lead time stated in the quote.">
-          ตั้งแต่เครื่องหน้าบ้านไปจนถึงตู้แร็คหลังบ้าน ถ้าไม่มีในสต็อก เราสั่งเข้ามาให้
-          พร้อมแจ้งระยะเวลาส่งมอบที่ชัดเจนตั้งแต่ตอนเสนอราคา
-        </p>
         <span class="streak" aria-hidden="true"></span>
       </div>
       <a class="more obs" href="#quote">
@@ -909,32 +873,12 @@ a.contact__v:hover{color:var(--blue-soft)}
 
 <!-- ============ WHY ============ -->
 <section class="sec sec--mist" id="why">
-  <div class="shell why">
-    <div>
-      <div class="sec__head obs">
+  <div class="shell">
+    <div class="sec__head obs">
         <span class="sec__num" aria-hidden="true">02</span>
         <p class="eyebrow" data-en="Why us">ทำไมต้องเรา</p>
-        <h2 class="h2" data-en="Procurement without the friction">ฝ่ายจัดซื้อทำงานง่ายขึ้น</h2>
-        <p class="lede" data-en="Buying IT rarely goes wrong on price. It goes wrong on paperwork, warranty cover and hardware that does not match the spec. We built our process around those three.">
-          ปัญหาของการซื้ออุปกรณ์ไอทีมักไม่ใช่ราคา แต่เป็นเอกสาร การรับประกัน และของที่ไม่ตรงสเปก
-          เราออกแบบการทำงานมาเพื่อตัดสามเรื่องนี้ออกไป
-        </p>
+        <h2 class="h2" data-en="A partner that removes every constraint">พาร์ทเนอร์ที่ช่วยปลดล็อก<span class="nowrap">ทุกข้อจำกัด</span></h2>
       </div>
-      <div class="promise obs">
-        <div class="promise__in">
-          <svg class="promise__mark" viewBox="40 195 432 122" aria-hidden="true" focusable="false"><use href="#mk"></use></svg>
-          <p class="promise__k" data-en="Our promise">คำมั่นของเรา</p>
-          <p class="promise__n"><span>24</span><small data-en="hours">ชั่วโมง</small></p>
-          <p class="promise__t" data-en="From the list you send to a line-by-line quotation">จากรายการที่ส่งมา ถึงใบเสนอราคาที่แจกแจงครบทุกรายการ</p>
-          <ul class="promise__list">
-            <li data-en="Genuine stock, local warranty">ของแท้ ประกันศูนย์ไทย</li>
-            <li data-en="Full tax invoice on every order">ใบกำกับภาษีเต็มรูปทุกออเดอร์</li>
-            <li data-en="Purchase orders accepted · 30-day credit">รับ PO · เครดิตเทอม 30 วัน</li>
-          </ul>
-          <a class="btn btn--primary btn--sm" href="#quote" data-en="Request a quote">ขอใบเสนอราคา</a>
-        </div>
-      </div>
-    </div>
 
     <div class="feats stag">
       <article class="feat"><div class="feat__in">
@@ -958,8 +902,8 @@ a.contact__v:hover{color:var(--blue-soft)}
           <span class="tile"><svg aria-hidden="true" focusable="false"><use href="#i-cred"></use></svg></span>
           <p class="feat__k"><b>03</b><span data-en="Credit">เครดิต</span></p>
         </div>
-        <h3 class="feat__t" data-en="Purchase orders and credit terms">รองรับ PO และเครดิตเทอม</h3>
-        <p class="feat__d" data-en="Order against a purchase order. Approved corporate accounts receive 30-day credit terms.">สั่งซื้อด้วยใบสั่งซื้อได้ ลูกค้าองค์กรที่ผ่านการอนุมัติรับเครดิตเทอม 30 วัน</p>
+        <h3 class="feat__t" data-en="Credit terms">เครดิตเทอม</h3>
+        <p class="feat__d" data-en="Approved corporate accounts receive 30-day credit terms.">ลูกค้าองค์กรที่ผ่านการอนุมัติรับเครดิตเทอม 30 วัน</p>
       </div></article>
       <article class="feat"><div class="feat__in">
         <div class="feat__top">
@@ -980,7 +924,7 @@ a.contact__v:hover{color:var(--blue-soft)}
     <div class="sec__head obs">
       <span class="sec__num" aria-hidden="true">03</span>
       <p class="eyebrow" data-en="How to order">ขั้นตอนสั่งซื้อ</p>
-      <h2 class="h2" data-en="From parts list to site">จากรายการสินค้าถึงหน้างาน</h2>
+      <h2 class="h2" data-en="From parts list to site">จากรายการสินค้าถึง<span class="nowrap">หน้างาน</span></h2>
       <p class="lede" data-en="Four clear steps, with a status update at each one.">สี่ขั้นตอนที่ชัดเจน พร้อมแจ้งสถานะให้ทราบทุกขั้น</p>
       <span class="streak" aria-hidden="true"></span>
     </div>
@@ -1031,10 +975,7 @@ a.contact__v:hover{color:var(--blue-soft)}
   <div class="shell quote__grid">
     <div class="obs">
       <p class="eyebrow eyebrow--light" data-en="Request a quote">ขอใบเสนอราคา</p>
-      <h2 class="h2" data-en="Tell us what you need">บอกมาว่าต้องการอะไร</h2>
-      <p class="lede" data-en="Send the list as it is — model numbers optional. Our team replies by the next business day.">
-        ส่งรายการมาได้เลย ไม่ต้องมีเลขรุ่นครบก็ได้ ทีมงานจะติดต่อกลับภายในวันทำการถัดไป
-      </p>
+      <h2 class="h2" data-en="Contact us">ติดต่อเรา</h2>
 
       <div class="contact">
         <div class="contact__row">
