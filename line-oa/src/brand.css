@@ -1,0 +1,33 @@
+/* Shared brand tokens for LINE OA artwork — mirrors index.html */
+@import url("https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@600;700&family=IBM+Plex+Mono:wght@500&family=IBM+Plex+Sans+Thai:wght@500;600&family=Michroma&display=block");
+
+:root{
+  --navy-950:#060D1B;
+  --navy:#0A1428;
+  --navy-2:#0E1D38;
+  --steel:#1E3557;
+  --steel-soft:#2A4770;
+  --silver:#C6D2E1;
+  --muted-dark:#8FA6C0;
+  --blue:#3F6DFF;
+  --blue-soft:#8AA8FF;
+  --signal:#FFB020;
+
+  --wide:"Michroma","Chakra Petch",sans-serif;
+  --display:"Chakra Petch",sans-serif;
+  --body:"IBM Plex Sans Thai",sans-serif;
+  --mono:"IBM Plex Mono",monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{overflow:hidden;background:var(--navy);color:#fff;font-family:var(--body)}
+
+/* two stepped mini-stripes, same as the site eyebrow */
+.eyebrow{display:flex;align-items:center;font-family:var(--mono);text-transform:uppercase;color:var(--blue-soft)}
+.eyebrow::before{content:"";flex:none;background:currentColor;transform:skewX(-45deg)}
+
+/* the logo stripe as a rule */
+.streak{
+  display:block;background:linear-gradient(90deg,#fff 0%,#fff 38%,rgba(255,255,255,0) 100%);
+  clip-path:polygon(0 100%,3% 0,34% 0,32% 55%,100% 55%,99.5% 100%);
+}
+.mark{display:block;pointer-events:none}

@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>Rich Menu 2500x1686</title>
+<link rel="stylesheet" href="brand.css">
+<style>
+html,body{width:2500px;height:1686px}
+body{
+  position:relative;
+  background:
+    radial-gradient(ellipse 60% 70% at 30% 10%,rgba(63,109,255,.18),transparent 70%),
+    var(--navy-950);
+}
+.grid{
+  position:absolute;inset:0;display:grid;gap:10px;padding:10px;
+  grid-template-columns:repeat(3,1fr);grid-template-rows:1fr 1fr;
+}
+.cell{
+  position:relative;overflow:hidden;
+  background:linear-gradient(180deg,var(--navy-2),var(--navy));
+  padding:70px 72px;display:flex;flex-direction:column;
+}
+.cell::after{ /* hairline border */
+  content:"";position:absolute;inset:0;border:2px solid var(--steel);pointer-events:none;
+}
+
+/* A: quote — spans two columns */
+.a{grid-column:1 / span 2;justify-content:space-between;
+   background:radial-gradient(ellipse 80% 90% at 100% 0%,rgba(63,109,255,.28),transparent 70%),linear-gradient(180deg,#10224A,var(--navy))}
+.a .mark{position:absolute;right:-120px;top:70px;width:1000px;opacity:.14}
+.a .eyebrow{font-size:34px;letter-spacing:.24em;gap:30px}
+.a .eyebrow::before{width:52px;height:8px;box-shadow:20px 12px 0 0 currentColor;margin-bottom:12px}
+.a h2{font-family:var(--display);font-weight:700;font-size:168px;line-height:1.05;letter-spacing:-.01em;margin-top:26px}
+.a p{font-size:52px;color:var(--silver);margin-top:14px}
+.a p b{font-family:var(--wide);font-weight:400;color:#fff}
+.cta{
+  align-self:flex-start;display:flex;align-items:center;gap:30px;
+  background:var(--blue);color:#fff;font-weight:600;font-size:54px;
+  padding:30px 80px 34px;
+  clip-path:polygon(30px 0,100% 0,calc(100% - 30px) 100%,0 100%);
+}
+.cta svg{width:62px;height:38px}
+
+/* B: products — tall icon stack */
+.b .eyebrow,.s .eyebrow{font-size:28px;letter-spacing:.2em;gap:24px}
+.b .eyebrow::before,.s .eyebrow::before{width:40px;height:6px;box-shadow:15px 9px 0 0 currentColor;margin-bottom:9px}
+.b h3,.s h3{font-family:var(--display);font-weight:700;font-size:104px;line-height:1.1;margin-top:auto}
+.b .sub,.s .sub{font-size:44px;color:var(--muted-dark);margin-top:10px}
+.icons{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:56px}
+.icons span{
+  aspect-ratio:1;display:grid;place-items:center;
+  background:rgba(30,53,87,.45);border:2px solid var(--steel);
+}
+.icons span.on{border-color:var(--blue);background:rgba(63,109,255,.18)}
+.icons svg{width:70%;height:70%;color:var(--blue-soft)}
+.b .n{font-family:var(--wide);font-size:40px;color:#fff}
+
+/* bottom small cells */
+.s{justify-content:flex-start}
+.s .ico{width:150px;height:150px;color:var(--blue-soft);margin-top:40px}
+.s .streak{height:14px;width:220px;margin-top:40px}
+.s .val{font-family:var(--wide);font-size:46px;color:#fff;margin-top:12px;letter-spacing:.01em}
+.s.accent .ico{color:var(--signal)}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute">
+  <defs>
+    <linearGradient id="fA" x1="47" x2="330" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#fff"/><stop offset=".48" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+    <linearGradient id="fB" x1="212" x2="468" gradientUnits="userSpaceOnUse"><stop offset="0" stop-color="#fff"/><stop offset=".5" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+  </defs>
+  <symbol id="mk" viewBox="40 195 432 122">
+    <path fill="#fff" d="M47 228 77 202H262L241 217H465L452 228Z"/>
+    <path fill="url(#fA)" d="M47 297 78 276H330V297Z"/>
+    <path fill="url(#fB)" d="M212 310 232 297H322L340 286H468V310Z"/>
+  </symbol>
+  <g id="st" fill="none" stroke="currentColor" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"></g>
+  <symbol id="i-cpu" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><rect x="26" y="26" width="68" height="46" rx="3"/><path d="M16 88h88l-8-14H24z"/></symbol>
+  <symbol id="i-net" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><rect x="10" y="42" width="100" height="34" rx="3"/><path d="M24 54v10M38 54v10M52 54v10M66 54v10M86 54h14M86 64h14"/></symbol>
+  <symbol id="i-lic" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M30 16h38l22 22v66H30z"/><path d="M68 16v22h22"/><path d="M44 66l10 11 22-25"/></symbol>
+  <symbol id="i-srv" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><rect x="28" y="16" width="64" height="88" rx="3"/><path d="M28 46h64M28 74h64M55 31h24M55 60h24M55 89h24"/></symbol>
+  <symbol id="i-mob" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><rect x="16" y="24" width="50" height="70" rx="5"/><rect x="76" y="42" width="30" height="52" rx="5"/></symbol>
+  <symbol id="i-sec" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><rect x="18" y="34" width="60" height="28" rx="14"/><circle cx="66" cy="48" r="8"/><path d="M44 62v28M30 90h28"/></symbol>
+  <symbol id="i-gam" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><rect x="12" y="36" width="96" height="48" rx="12"/><path d="M26 60h17M34.5 51.5v17"/><circle cx="90" cy="54" r="4"/><circle cx="98" cy="66" r="4"/></symbol>
+  <symbol id="i-prp" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M38 40V18h44v22"/><rect x="22" y="40" width="76" height="38" rx="3"/><path d="M38 78h44v24H38z"/></symbol>
+  <symbol id="i-tel" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><path d="M34 16h20l8 24-12 8a60 60 0 0 0 22 22l8-12 24 8v20a8 8 0 0 1-8 8C52 94 26 68 26 24a8 8 0 0 1 8-8z"/></symbol>
+  <symbol id="i-web" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><circle cx="60" cy="60" r="42"/><path d="M18 60h84M60 18c14 14 20 28 20 42s-6 28-20 42c-14-14-20-28-20-42s6-28 20-42z"/></symbol>
+  <symbol id="i-clk" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"><circle cx="60" cy="60" r="42"/><path d="M60 34v28l18 12"/></symbol>
+</svg>
+
+<div class="grid">
+  <!-- A: 0,0 → 1666,843 -->
+  <div class="cell a">
+    <svg class="mark" viewBox="40 195 432 122"><use href="#mk"/></svg>
+    <div>
+      <p class="eyebrow">Request a quote</p>
+      <h2>ขอใบเสนอราคา</h2>
+      <p>ส่งรายการมาได้เลย ตอบกลับภายใน <b>24</b> ชั่วโมง</p>
+    </div>
+    <span class="cta">แตะเพื่อส่งรายการ
+      <svg viewBox="0 0 16 10" fill="currentColor"><path d="M0 4h12L9 1h2.5L16 5l-4.5 4H9l3-3H0z"/></svg>
+    </span>
+  </div>
+
+  <!-- B: 1666,0 → 2500,843 -->
+  <div class="cell b">
+    <p class="eyebrow">Products</p>
+    <div class="icons">
+      <span class="on"><svg><use href="#i-cpu"/></svg></span>
+      <span><svg><use href="#i-net"/></svg></span>
+      <span><svg><use href="#i-lic"/></svg></span>
+      <span><svg><use href="#i-srv"/></svg></span>
+      <span><svg><use href="#i-mob"/></svg></span>
+      <span><svg><use href="#i-sec"/></svg></span>
+      <span><svg><use href="#i-gam"/></svg></span>
+      <span><svg><use href="#i-prp"/></svg></span>
+    </div>
+    <h3>หมวดสินค้า</h3>
+    <p class="sub"><span class="n">08</span> หมวด ครบทั้งระบบ</p>
+  </div>
+
+  <!-- C: 0,843 → 833,1686 -->
+  <div class="cell s">
+    <p class="eyebrow">Call us</p>
+    <svg class="ico"><use href="#i-tel"/></svg>
+    <h3>โทรหาเรา</h3>
+    <p class="val">064-213-3140</p>
+  </div>
+
+  <!-- D: 833,843 → 1666,1686 -->
+  <div class="cell s">
+    <p class="eyebrow">Website</p>
+    <svg class="ico"><use href="#i-web"/></svg>
+    <h3>เว็บไซต์</h3>
+    <p class="sub">ดูสินค้าและขั้นตอนสั่งซื้อ</p>
+  </div>
+
+  <!-- E: 1666,843 → 2500,1686 -->
+  <div class="cell s accent">
+    <p class="eyebrow">Contact</p>
+    <svg class="ico"><use href="#i-clk"/></svg>
+    <h3>ติดต่อเรา</h3>
+    <p class="sub">จันทร์–ศุกร์ 09:00–18:00</p>
+  </div>
+</div>
+</body>
+</html>
