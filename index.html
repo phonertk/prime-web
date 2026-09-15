@@ -419,54 +419,178 @@ a{color:inherit}
 @keyframes slide{to{transform:translateX(-50%)}}
 @media(max-width:620px){.supply__in{flex-direction:column;align-items:flex-start;gap:12px}.marquee{width:100%}}
 
-/* ---------- sections ---------- */
-.sec{padding-block:clamp(64px,9vw,108px)}
-.sec--tint{background:var(--paper-2)}
-.sec__head{max-width:660px;margin-bottom:clamp(36px,5vw,54px)}
+/* ---------- light sections ---------- */
+.sec{position:relative;isolation:isolate;overflow:hidden;padding-block:clamp(72px,10vw,124px)}
+.sec--paper{
+  background:
+    radial-gradient(ellipse 55% 45% at 100% 0%,rgba(63,109,255,.09),transparent 70%),
+    radial-gradient(ellipse 45% 40% at 0% 100%,rgba(63,109,255,.06),transparent 70%),
+    linear-gradient(180deg,#F8FAFD 0%,#EEF3F9 100%);
+}
+.sec--paper::before{ /* faint blueprint grid, fading out downwards */
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background-image:
+    linear-gradient(rgba(10,20,40,.05) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(10,20,40,.05) 1px,transparent 1px);
+  background-size:56px 56px;
+  -webkit-mask-image:radial-gradient(ellipse 80% 70% at 50% 0%,#000 10%,transparent 75%);
+          mask-image:radial-gradient(ellipse 80% 70% at 50% 0%,#000 10%,transparent 75%);
+}
+.sec--mist{
+  background:
+    repeating-linear-gradient(135deg,rgba(10,20,40,.028) 0 1px,transparent 1px 16px),
+    linear-gradient(180deg,#E9EEF5,#E2E9F2);
+}
+.sec--last{padding-bottom:clamp(110px,14vw,170px)}
+.sec__mark{position:absolute;z-index:-1;pointer-events:none;height:auto;opacity:.05}
+.sec__mark--r{right:clamp(-220px,-12vw,-80px);top:clamp(40px,6vw,90px);width:clamp(420px,50vw,760px)}
+.sec__mark--l{left:clamp(-240px,-14vw,-90px);bottom:clamp(90px,10vw,140px);width:clamp(380px,44vw,680px)}
+
+.sec__head{position:relative;max-width:680px;margin-bottom:clamp(40px,5vw,60px)}
 .sec__head .streak{width:120px;margin-top:26px}
+.sec__num{ /* big outlined section number behind the heading */
+  position:absolute;left:-4px;top:-.55em;z-index:-1;pointer-events:none;user-select:none;
+  font-family:var(--wide);font-size:clamp(88px,13vw,168px);line-height:1;letter-spacing:-.02em;
+  color:transparent;-webkit-text-stroke:1.5px rgba(10,20,40,.08);
+}
+.sec__row{display:flex;justify-content:space-between;align-items:flex-end;gap:24px 40px;flex-wrap:wrap;margin-bottom:clamp(40px,5vw,60px)}
+.sec__row .sec__head{margin-bottom:0}
 
-.vals{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-@media(max-width:1080px){.vals{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:560px){.vals{grid-template-columns:1fr}}
+.more{display:inline-flex;align-items:center;gap:10px;font-weight:600;font-size:15px;color:var(--ink);text-decoration:none;padding-bottom:6px;border-bottom:2px solid var(--blue);transition:color .2s}
+.more:hover{color:var(--blue)}
+.arw{width:16px;height:10px;flex:none;transition:transform .25s var(--ease)}
+.more:hover .arw,.pcard__go:hover .arw{transform:translateX(4px)}
 
-.val{
-  background:#fff;padding:clamp(24px,3vw,32px);position:relative;overflow:hidden;
-  clip-path:polygon(0 0,calc(100% - 22px) 0,100% 22px,100% 100%,0 100%);
-  transition:transform .3s var(--ease),box-shadow .3s;
-}
-.sec--tint .val{background:var(--paper)}
-.val::after{ /* streak bar grows along the bottom on hover */
-  content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
-  background:linear-gradient(90deg,var(--blue),var(--blue) 40%,rgba(63,109,255,0));
-  transform:scaleX(.18);transform-origin:left;transition:transform .45s var(--ease);
-}
-.val:hover{transform:translateY(-4px)}
-.val:hover::after{transform:scaleX(1)}
-.val__ico{
-  position:absolute;right:-16px;bottom:-16px;
-  width:136px;height:136px;
-  color:var(--ink);opacity:.07;
-  pointer-events:none;
-  transition:opacity .35s ease,transform .35s ease;
-}
-.val:hover .val__ico{opacity:.12;transform:translate(-6px,-6px)}
-.val__k,.val__t,.val__d{position:relative;z-index:1}
-.val__k{
-  font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
-  color:var(--blue);margin-bottom:14px;display:flex;align-items:center;gap:10px;
-}
-.val__n{font-family:var(--wide);font-size:12px;letter-spacing:.04em;color:var(--muted)}
-.val__t{font-family:var(--display);font-weight:600;font-size:19px;line-height:1.35;margin-bottom:9px}
-.val__d{color:var(--muted);font-size:15px}
+/* staggered reveal (class is removed by JS once the entrance has played) */
+.stag>*{opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .7s var(--ease);transition-delay:calc(var(--i,0) * 70ms)}
+.stag.seen>*{opacity:1;transform:none}
 
-/* process: each step is topped with the logo stripe */
-.flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:clamp(22px,3vw,32px);counter-reset:step}
-.step{counter-increment:step}
-.step .streak{margin-bottom:22px}
-.step__n{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--muted);margin-bottom:12px;display:flex;align-items:baseline;gap:10px}
-.step__n::before{content:"0" counter(step);font-family:var(--wide);font-size:26px;letter-spacing:0;color:var(--ink);line-height:1}
-.step__t{font-family:var(--display);font-weight:600;font-size:18px;margin-bottom:7px}
-.step__d{color:var(--muted);font-size:15px}
+/* brand icon tile: navy parallelogram */
+.tile{
+  display:grid;place-items:center;flex:none;width:58px;height:48px;
+  background:linear-gradient(135deg,#132A52,var(--navy));color:var(--blue-soft);
+  clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%);
+  transition:background .3s,color .3s;
+}
+.tile svg{width:28px;height:28px}
+
+/* shadow lives on the wrapper so the clipped card keeps its depth */
+.pcard,.feat,.tl__card{
+  filter:drop-shadow(0 1px 1px rgba(10,20,40,.05)) drop-shadow(0 12px 24px rgba(10,20,40,.07));
+  transition:transform .35s var(--ease),filter .35s var(--ease);
+}
+.pcard:hover,.feat:hover,.tl__step:hover .tl__card{
+  transform:translateY(-6px);
+  filter:drop-shadow(0 2px 2px rgba(10,20,40,.06)) drop-shadow(0 22px 34px rgba(10,20,40,.13));
+}
+
+/* products */
+.pgrid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+@media(max-width:1080px){.pgrid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.pgrid{grid-template-columns:1fr}}
+.pcard__in{
+  position:relative;height:100%;display:flex;flex-direction:column;
+  background:#fff;padding:24px 24px 20px;
+  clip-path:polygon(0 0,calc(100% - 26px) 0,100% 26px,100% 100%,0 100%);
+}
+.pcard__in::before{ /* blue streak that grows along the top on hover */
+  content:"";position:absolute;left:0;top:0;height:3px;width:100%;
+  background:linear-gradient(90deg,var(--blue),var(--blue) 45%,rgba(63,109,255,0));
+  transform:scaleX(.22);transform-origin:left;transition:transform .5s var(--ease);
+}
+.pcard:hover .pcard__in::before{transform:scaleX(1)}
+.pcard:hover .tile,.feat:hover .tile{background:linear-gradient(135deg,var(--blue),#2A4FD6);color:#fff}
+.pcard__top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:22px}
+.pcard__n{font-family:var(--wide);font-size:13px;color:rgba(10,20,40,.28);padding-right:18px}
+.pcard__sku{font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--blue);margin-bottom:6px}
+.pcard__t{font-family:var(--display);font-weight:600;font-size:19px;line-height:1.3;margin-bottom:8px}
+.pcard__d{color:var(--muted);font-size:14.5px;line-height:1.6}
+.pcard__tags{display:flex;flex-wrap:wrap;gap:6px;list-style:none;margin:16px 0 20px}
+.pcard__tags li{
+  font-family:var(--mono);font-size:11px;color:#3A5070;background:var(--paper-2);
+  padding:3px 11px;clip-path:polygon(5px 0,100% 0,calc(100% - 5px) 100%,0 100%);
+}
+.pcard__go{
+  margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:10px;
+  padding-top:14px;border-top:1px solid var(--rule);
+  font-weight:600;font-size:14px;color:var(--ink);text-decoration:none;transition:color .2s;
+}
+.pcard__go:hover{color:var(--blue)}
+
+/* why: navy promise card + staggered feature cards */
+.why{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,5vw,64px);align-items:start}
+@media(max-width:980px){.why{grid-template-columns:1fr}}
+.why .h2{font-size:clamp(28px,3.2vw,40px)}
+.promise{filter:drop-shadow(0 24px 40px rgba(10,20,40,.25))}
+.promise__in{
+  position:relative;overflow:hidden;color:#fff;
+  background:
+    radial-gradient(ellipse 80% 70% at 100% 0%,rgba(63,109,255,.35),transparent 65%),
+    linear-gradient(160deg,#132A52,var(--navy) 60%);
+  padding:clamp(28px,3.4vw,40px);
+  clip-path:polygon(0 0,calc(100% - 34px) 0,100% 34px,100% 100%,0 100%);
+}
+.promise__mark{position:absolute;right:-70px;bottom:-24px;width:360px;height:auto;opacity:.1;pointer-events:none}
+.promise__k{position:relative;font-family:var(--mono);font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--blue-soft)}
+.promise__n{position:relative;display:flex;align-items:baseline;gap:12px;margin-top:12px;line-height:1}
+.promise__n span{
+  font-family:var(--wide);font-size:clamp(64px,8vw,92px);letter-spacing:-.02em;
+  background:linear-gradient(90deg,#fff,var(--blue-soft));-webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.promise__n small{font-family:var(--display);font-weight:600;font-size:clamp(20px,2.4vw,26px);color:var(--silver)}
+.promise__t{position:relative;font-family:var(--display);font-weight:600;font-size:19px;line-height:1.4;margin-top:16px;max-width:28ch}
+.promise__list{position:relative;list-style:none;margin:22px 0 28px;display:grid;gap:12px}
+.promise__list li{display:flex;align-items:center;gap:14px;color:var(--silver);font-size:15px}
+.promise__list li::before{
+  content:"";flex:none;width:16px;height:4px;margin-bottom:5px;
+  background:var(--blue-soft);transform:skewX(-45deg);box-shadow:6px 5px 0 0 rgba(138,168,255,.45);
+}
+
+.feats{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+@media(min-width:981px){.feats>:nth-child(even){margin-top:44px}}
+@media(max-width:560px){.feats{grid-template-columns:1fr}}
+.feat__in{
+  position:relative;height:100%;background:#fff;padding:clamp(24px,2.8vw,30px);
+  clip-path:polygon(0 0,calc(100% - 24px) 0,100% 24px,100% 100%,0 100%);
+}
+.feat__top{display:flex;align-items:center;gap:14px;margin-bottom:18px}
+.feat__k{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+.feat__k b{font-family:var(--wide);font-weight:400;color:rgba(10,20,40,.3);margin-right:8px;letter-spacing:0}
+.feat__t{font-family:var(--display);font-weight:600;font-size:19px;line-height:1.35;margin-bottom:8px}
+.feat__d{color:var(--muted);font-size:15px}
+
+/* process: timeline on a logo-stripe track */
+.tl{list-style:none;display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:22px;position:relative}
+.tl::before{
+  content:"";position:absolute;left:0;right:0;top:23px;height:6px;
+  background:linear-gradient(90deg,var(--ink),var(--ink) 35%,rgba(10,20,40,.14) 100%);
+  clip-path:polygon(0 100%,6px 0,34% 0,calc(34% - 3px) 3px,100% 3px,100% 100%);
+}
+.tl__step{position:relative;display:flex;flex-direction:column}
+.tl__badge{
+  position:relative;display:grid;place-items:center;width:78px;height:52px;margin-bottom:22px;
+  font-family:var(--wide);font-size:17px;color:#fff;background:var(--navy);
+  clip-path:polygon(14px 0,100% 0,calc(100% - 14px) 100%,0 100%);
+}
+.tl__step:last-child .tl__badge{background:var(--blue)}
+.tl__card{flex:1}
+.tl__in{
+  height:100%;background:#fff;padding:22px 22px 24px;
+  clip-path:polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,0 100%);
+}
+.tl__k{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:10px}
+.tl__t{font-family:var(--display);font-weight:600;font-size:18px;line-height:1.35;margin-bottom:8px}
+.tl__d{color:var(--muted);font-size:14.5px}
+@media(max-width:900px){
+  .tl{grid-template-columns:1fr;gap:18px}
+  .tl::before{left:37px;right:auto;top:0;bottom:0;width:4px;height:auto;clip-path:none;background:linear-gradient(180deg,var(--ink),rgba(10,20,40,.12))}
+  .tl__step{display:grid;grid-template-columns:78px minmax(0,1fr);gap:16px;align-items:start}
+  .tl__badge{margin-bottom:0}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .stag>*{opacity:1;transform:none}
+}
 
 /* ---------- quote ---------- */
 .quote{
@@ -613,6 +737,44 @@ a.contact__v:hover{color:var(--blue-soft)}
     <path d="M38 78h44v24H38z"/>
     <circle cx="86" cy="52" r="2.6"/>
   </symbol>
+  <defs>
+    <linearGradient id="inkFadeA" x1="47" y1="0" x2="330" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0A1428"/><stop offset=".48" stop-color="#0A1428"/><stop offset="1" stop-color="#0A1428" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="inkFadeB" x1="212" y1="0" x2="468" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#0A1428"/><stop offset=".5" stop-color="#0A1428"/><stop offset="1" stop-color="#0A1428" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- logo mark: white (dark grounds) and navy (light grounds) -->
+  <symbol id="mk" viewBox="40 195 432 122">
+    <path fill="#fff" d="M47 228 77 202H262L241 217H465L452 228Z"/>
+    <path fill="url(#markFadeA)" d="M47 297 78 276H330V297Z"/>
+    <path fill="url(#markFadeB)" d="M212 310 232 297H322L340 286H468V310Z"/>
+  </symbol>
+  <symbol id="mk-ink" viewBox="40 195 432 122">
+    <path fill="#0A1428" d="M47 228 77 202H262L241 217H465L452 228Z"/>
+    <path fill="url(#inkFadeA)" d="M47 297 78 276H330V297Z"/>
+    <path fill="url(#inkFadeB)" d="M212 310 232 297H322L340 286H468V310Z"/>
+  </symbol>
+
+  <symbol id="i-gen" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M60 14l38 14v28c0 26-16 44-38 52-22-8-38-26-38-52V28z"/>
+    <path d="M42 60l12 12 24-26"/>
+  </symbol>
+  <symbol id="i-doc" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M30 14h60v92l-10-7-10 7-10-7-10 7-10-7-10 7z"/>
+    <path d="M44 38h32M44 54h32M44 70h20"/>
+  </symbol>
+  <symbol id="i-cred" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="12" y="28" width="96" height="64" rx="8"/>
+    <path d="M12 48h96M28 74h22"/>
+  </symbol>
+  <symbol id="i-aud" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+    <circle cx="60" cy="48" r="28"/>
+    <path d="M48 48l8 8 16-16"/>
+    <path d="M44 72l-8 34 24-12 24 12-8-34"/>
+  </symbol>
 </svg>
 
 <header class="hdr">
@@ -719,91 +881,140 @@ a.contact__v:hover{color:var(--blue-soft)}
 </section>
 
 <!-- ============ PRODUCTS ============ -->
-<section class="sec" id="products">
+<section class="sec sec--paper" id="products">
+  <svg class="sec__mark sec__mark--r" viewBox="40 195 432 122" aria-hidden="true" focusable="false"><use href="#mk-ink"></use></svg>
   <div class="shell">
-    <div class="sec__head obs">
-      <p class="eyebrow" data-en="Product categories">หมวดสินค้า</p>
-      <h2 class="h2" data-en="One supplier for the whole stack">สั่งจากที่เดียว จบทั้งระบบ</h2>
-      <p class="lede" data-en="From the desks out front to the rack out back. If it is not in stock we bring it in, with a firm lead time stated in the quote.">
-        ตั้งแต่เครื่องหน้าบ้านไปจนถึงตู้แร็คหลังบ้าน ถ้าไม่มีในสต็อก เราสั่งเข้ามาให้
-        พร้อมแจ้งระยะเวลาส่งมอบที่ชัดเจนตั้งแต่ตอนเสนอราคา
-      </p>
-      <span class="streak" aria-hidden="true"></span>
+    <div class="sec__row">
+      <div class="sec__head obs">
+        <span class="sec__num" aria-hidden="true">01</span>
+        <p class="eyebrow" data-en="Product categories">หมวดสินค้า</p>
+        <h2 class="h2" data-en="One supplier for the whole stack">สั่งจากที่เดียว จบทั้งระบบ</h2>
+        <p class="lede" data-en="From the desks out front to the rack out back. If it is not in stock we bring it in, with a firm lead time stated in the quote.">
+          ตั้งแต่เครื่องหน้าบ้านไปจนถึงตู้แร็คหลังบ้าน ถ้าไม่มีในสต็อก เราสั่งเข้ามาให้
+          พร้อมแจ้งระยะเวลาส่งมอบที่ชัดเจนตั้งแต่ตอนเสนอราคา
+        </p>
+        <span class="streak" aria-hidden="true"></span>
+      </div>
+      <a class="more obs" href="#quote">
+        <span data-en="Can't see it? Just ask">ไม่เจอสินค้าที่ต้องการ? สอบถามได้</span>
+        <svg class="arw" viewBox="0 0 16 10" fill="currentColor" aria-hidden="true"><path d="M0 4h12L9 1h2.5L16 5l-4.5 4H9l3-3H0z"/></svg>
+      </a>
     </div>
-    <div class="vals obs" id="prodGrid"></div>
+    <div class="pgrid stag" id="prodGrid"></div>
   </div>
 </section>
 
 <!-- ============ WHY ============ -->
-<section class="sec sec--tint" id="why">
-  <div class="shell">
-    <div class="sec__head obs">
-      <p class="eyebrow" data-en="Why us">ทำไมต้องเรา</p>
-      <h2 class="h2" data-en="Procurement without the friction">ฝ่ายจัดซื้อทำงานง่ายขึ้น</h2>
-      <p class="lede" data-en="Buying IT rarely goes wrong on price. It goes wrong on paperwork, warranty cover and hardware that does not match the spec. We built our process around those three.">
-        ปัญหาของการซื้ออุปกรณ์ไอทีมักไม่ใช่ราคา แต่เป็นเอกสาร การรับประกัน และของที่ไม่ตรงสเปก
-        เราออกแบบการทำงานมาเพื่อตัดสามเรื่องนี้ออกไป
-      </p>
-      <span class="streak" aria-hidden="true"></span>
+<section class="sec sec--mist" id="why">
+  <div class="shell why">
+    <div>
+      <div class="sec__head obs">
+        <span class="sec__num" aria-hidden="true">02</span>
+        <p class="eyebrow" data-en="Why us">ทำไมต้องเรา</p>
+        <h2 class="h2" data-en="Procurement without the friction">ฝ่ายจัดซื้อทำงานง่ายขึ้น</h2>
+        <p class="lede" data-en="Buying IT rarely goes wrong on price. It goes wrong on paperwork, warranty cover and hardware that does not match the spec. We built our process around those three.">
+          ปัญหาของการซื้ออุปกรณ์ไอทีมักไม่ใช่ราคา แต่เป็นเอกสาร การรับประกัน และของที่ไม่ตรงสเปก
+          เราออกแบบการทำงานมาเพื่อตัดสามเรื่องนี้ออกไป
+        </p>
+      </div>
+      <div class="promise obs">
+        <div class="promise__in">
+          <svg class="promise__mark" viewBox="40 195 432 122" aria-hidden="true" focusable="false"><use href="#mk"></use></svg>
+          <p class="promise__k" data-en="Our promise">คำมั่นของเรา</p>
+          <p class="promise__n"><span>24</span><small data-en="hours">ชั่วโมง</small></p>
+          <p class="promise__t" data-en="From the list you send to a line-by-line quotation">จากรายการที่ส่งมา ถึงใบเสนอราคาที่แจกแจงครบทุกรายการ</p>
+          <ul class="promise__list">
+            <li data-en="Genuine stock, local warranty">ของแท้ ประกันศูนย์ไทย</li>
+            <li data-en="Full tax invoice on every order">ใบกำกับภาษีเต็มรูปทุกออเดอร์</li>
+            <li data-en="Purchase orders accepted · 30-day credit">รับ PO · เครดิตเทอม 30 วัน</li>
+          </ul>
+          <a class="btn btn--primary btn--sm" href="#quote" data-en="Request a quote">ขอใบเสนอราคา</a>
+        </div>
+      </div>
     </div>
-    <div class="vals obs">
-      <div class="val">
-        <p class="val__k"><span class="val__n">01</span><span data-en="Genuine">ของแท้</span></p>
-        <h3 class="val__t" data-en="Sourced through local distribution">สินค้าจากช่องทางจัดจำหน่ายในประเทศ</h3>
-        <p class="val__d" data-en="Everything comes through major Thai distributors. Each unit carries a local service-centre warranty and a serial number you can verify with the manufacturer.">รับสินค้าผ่านดิสทริบิวเตอร์รายใหญ่ในไทย ทุกชิ้นมีใบรับประกันศูนย์ไทย ตรวจสอบซีเรียลกับผู้ผลิตได้</p>
-      </div>
-      <div class="val">
-        <p class="val__k"><span class="val__n">02</span><span data-en="Paperwork">เอกสาร</span></p>
-        <h3 class="val__t" data-en="Full tax invoicing">ใบกำกับภาษีเต็มรูปแบบ</h3>
-        <p class="val__d" data-en="Quotation, delivery note and full tax invoice on every order, ready for your billing cycle and procurement system.">ออกใบเสนอราคา ใบส่งของ และใบกำกับภาษีครบชุด รองรับการวางบิลและระบบจัดซื้อขององค์กร</p>
-      </div>
-      <div class="val">
-        <p class="val__k"><span class="val__n">03</span><span data-en="Credit">เครดิต</span></p>
-        <h3 class="val__t" data-en="Purchase orders and credit terms">รองรับ PO และเครดิตเทอม</h3>
-        <p class="val__d" data-en="Order against a purchase order. Approved corporate accounts receive 30-day credit terms.">สั่งซื้อด้วยใบสั่งซื้อได้ ลูกค้าองค์กรที่ผ่านการอนุมัติรับเครดิตเทอม 30 วัน</p>
-      </div>
-      <div class="val">
-        <p class="val__k"><span class="val__n">04</span><span data-en="Licensing">ไลเซนส์</span></p>
-        <h3 class="val__t" data-en="Licences that survive an audit">ซอฟต์แวร์ถูกลิขสิทธิ์ ตรวจสอบได้</h3>
-        <p class="val__d" data-en="Every licence is registered to your organisation and supplied with proof of entitlement you can produce during an audit.">ไลเซนส์ทุกฉบับลงทะเบียนในชื่อองค์กรของคุณ พร้อมใบรับรองสิทธิ์สำหรับใช้ตอนถูกตรวจสอบ</p>
-      </div>
+
+    <div class="feats stag">
+      <article class="feat"><div class="feat__in">
+        <div class="feat__top">
+          <span class="tile"><svg aria-hidden="true" focusable="false"><use href="#i-gen"></use></svg></span>
+          <p class="feat__k"><b>01</b><span data-en="Genuine">ของแท้</span></p>
+        </div>
+        <h3 class="feat__t" data-en="Sourced through local distribution">สินค้าจากช่องทางจัดจำหน่ายในประเทศ</h3>
+        <p class="feat__d" data-en="Everything comes through major Thai distributors. Each unit carries a local service-centre warranty and a serial number you can verify with the manufacturer.">รับสินค้าผ่านดิสทริบิวเตอร์รายใหญ่ในไทย ทุกชิ้นมีใบรับประกันศูนย์ไทย ตรวจสอบซีเรียลกับผู้ผลิตได้</p>
+      </div></article>
+      <article class="feat"><div class="feat__in">
+        <div class="feat__top">
+          <span class="tile"><svg aria-hidden="true" focusable="false"><use href="#i-doc"></use></svg></span>
+          <p class="feat__k"><b>02</b><span data-en="Paperwork">เอกสาร</span></p>
+        </div>
+        <h3 class="feat__t" data-en="Full tax invoicing">ใบกำกับภาษีเต็มรูปแบบ</h3>
+        <p class="feat__d" data-en="Quotation, delivery note and full tax invoice on every order, ready for your billing cycle and procurement system.">ออกใบเสนอราคา ใบส่งของ และใบกำกับภาษีครบชุด รองรับการวางบิลและระบบจัดซื้อขององค์กร</p>
+      </div></article>
+      <article class="feat"><div class="feat__in">
+        <div class="feat__top">
+          <span class="tile"><svg aria-hidden="true" focusable="false"><use href="#i-cred"></use></svg></span>
+          <p class="feat__k"><b>03</b><span data-en="Credit">เครดิต</span></p>
+        </div>
+        <h3 class="feat__t" data-en="Purchase orders and credit terms">รองรับ PO และเครดิตเทอม</h3>
+        <p class="feat__d" data-en="Order against a purchase order. Approved corporate accounts receive 30-day credit terms.">สั่งซื้อด้วยใบสั่งซื้อได้ ลูกค้าองค์กรที่ผ่านการอนุมัติรับเครดิตเทอม 30 วัน</p>
+      </div></article>
+      <article class="feat"><div class="feat__in">
+        <div class="feat__top">
+          <span class="tile"><svg aria-hidden="true" focusable="false"><use href="#i-aud"></use></svg></span>
+          <p class="feat__k"><b>04</b><span data-en="Licensing">ไลเซนส์</span></p>
+        </div>
+        <h3 class="feat__t" data-en="Licences that survive an audit">ซอฟต์แวร์ถูกลิขสิทธิ์ ตรวจสอบได้</h3>
+        <p class="feat__d" data-en="Every licence is registered to your organisation and supplied with proof of entitlement you can produce during an audit.">ไลเซนส์ทุกฉบับลงทะเบียนในชื่อองค์กรของคุณ พร้อมใบรับรองสิทธิ์สำหรับใช้ตอนถูกตรวจสอบ</p>
+      </div></article>
     </div>
   </div>
 </section>
 
 <!-- ============ PROCESS ============ -->
-<section class="sec" id="process">
+<section class="sec sec--paper sec--last" id="process">
+  <svg class="sec__mark sec__mark--l" viewBox="40 195 432 122" aria-hidden="true" focusable="false"><use href="#mk-ink"></use></svg>
   <div class="shell">
     <div class="sec__head obs">
+      <span class="sec__num" aria-hidden="true">03</span>
       <p class="eyebrow" data-en="How to order">ขั้นตอนสั่งซื้อ</p>
       <h2 class="h2" data-en="From parts list to site">จากรายการสินค้าถึงหน้างาน</h2>
+      <p class="lede" data-en="Four clear steps, with a status update at each one.">สี่ขั้นตอนที่ชัดเจน พร้อมแจ้งสถานะให้ทราบทุกขั้น</p>
+      <span class="streak" aria-hidden="true"></span>
     </div>
-    <div class="flow obs">
-      <div class="step">
-        <span class="streak" aria-hidden="true"></span>
-        <span class="step__n" data-en="Send the list">ส่งรายการ</span>
-        <h3 class="step__t" data-en="Send specs or a file">แจ้งสเปกหรือส่งไฟล์มา</h3>
-        <p class="step__d" data-en="Already have model numbers? Send them over. No spec yet and we will size it to your budget and workload.">มีรุ่นอยู่แล้วส่งมาได้เลย ยังไม่มีสเปกเราช่วยเลือกให้ตามงบและการใช้งาน</p>
-      </div>
-      <div class="step">
-        <span class="streak" aria-hidden="true"></span>
-        <span class="step__n" data-en="Quotation">เสนอราคา</span>
-        <h3 class="step__t" data-en="Quote back within 24 hours">รับใบเสนอราคาใน 24 ชั่วโมง</h3>
-        <p class="step__d" data-en="Price, lead time and warranty terms stated line by line, so nothing is discovered later.">ระบุราคา ระยะเวลาส่งมอบ และเงื่อนไขรับประกันของแต่ละรายการชัดเจน</p>
-      </div>
-      <div class="step">
-        <span class="streak" aria-hidden="true"></span>
-        <span class="step__n" data-en="Confirm">ยืนยัน</span>
-        <h3 class="step__t" data-en="Issue a PO and we order">ออก PO แล้วเราสั่งของ</h3>
-        <p class="step__d" data-en="Confirm by purchase order or email. We report status at every stage up to the delivery date.">ยืนยันสั่งซื้อผ่านใบสั่งซื้อหรืออีเมล เราแจ้งสถานะของทุกขั้นจนถึงวันส่ง</p>
-      </div>
-      <div class="step">
-        <span class="streak" aria-hidden="true"></span>
-        <span class="step__n" data-en="Delivery">ส่งมอบ</span>
-        <h3 class="step__t" data-en="Delivered with the paperwork">ส่งถึงที่ พร้อมเอกสารครบ</h3>
-        <p class="step__d" data-en="Arrives with the tax invoice and warranty documents. On-site installation can be added at quotation stage.">ส่งพร้อมใบกำกับภาษีและใบรับประกัน ต้องการติดตั้งหน้างานแจ้งได้ตั้งแต่ตอนเสนอราคา</p>
-      </div>
-    </div>
+    <ol class="tl stag">
+      <li class="tl__step">
+        <span class="tl__badge" aria-hidden="true">01</span>
+        <div class="tl__card"><div class="tl__in">
+          <span class="tl__k" data-en="Send the list">ส่งรายการ</span>
+          <h3 class="tl__t" data-en="Send specs or a file">แจ้งสเปกหรือส่งไฟล์มา</h3>
+          <p class="tl__d" data-en="Already have model numbers? Send them over. No spec yet and we will size it to your budget and workload.">มีรุ่นอยู่แล้วส่งมาได้เลย ยังไม่มีสเปกเราช่วยเลือกให้ตามงบและการใช้งาน</p>
+        </div></div>
+      </li>
+      <li class="tl__step">
+        <span class="tl__badge" aria-hidden="true">02</span>
+        <div class="tl__card"><div class="tl__in">
+          <span class="tl__k" data-en="Quotation">เสนอราคา</span>
+          <h3 class="tl__t" data-en="Quote back within 24 hours">รับใบเสนอราคาใน 24 ชั่วโมง</h3>
+          <p class="tl__d" data-en="Price, lead time and warranty terms stated line by line, so nothing is discovered later.">ระบุราคา ระยะเวลาส่งมอบ และเงื่อนไขรับประกันของแต่ละรายการชัดเจน</p>
+        </div></div>
+      </li>
+      <li class="tl__step">
+        <span class="tl__badge" aria-hidden="true">03</span>
+        <div class="tl__card"><div class="tl__in">
+          <span class="tl__k" data-en="Confirm">ยืนยัน</span>
+          <h3 class="tl__t" data-en="Issue a PO and we order">ออก PO แล้วเราสั่งของ</h3>
+          <p class="tl__d" data-en="Confirm by purchase order or email. We report status at every stage up to the delivery date.">ยืนยันสั่งซื้อผ่านใบสั่งซื้อหรืออีเมล เราแจ้งสถานะของทุกขั้นจนถึงวันส่ง</p>
+        </div></div>
+      </li>
+      <li class="tl__step">
+        <span class="tl__badge" aria-hidden="true">04</span>
+        <div class="tl__card"><div class="tl__in">
+          <span class="tl__k" data-en="Delivery">ส่งมอบ</span>
+          <h3 class="tl__t" data-en="Delivered with the paperwork">ส่งถึงที่ พร้อมเอกสารครบ</h3>
+          <p class="tl__d" data-en="Arrives with the tax invoice and warranty documents. On-site installation can be added at quotation stage.">ส่งพร้อมใบกำกับภาษีและใบรับประกัน ต้องการติดตั้งหน้างานแจ้งได้ตั้งแต่ตอนเสนอราคา</p>
+        </div></div>
+      </li>
+    </ol>
   </div>
 </section>
 
@@ -1043,25 +1254,58 @@ a.contact__v:hover{color:var(--blue-soft)}
   setTimeout(function(){ if (!currentCat) show(CATS[0]); }, reduce ? 0 : 1500);
 
   /* ---------- product grid ---------- */
+  var ARROW = '<svg class="arw" viewBox="0 0 16 10" fill="currentColor" aria-hidden="true"><path d="M0 4h12L9 1h2.5L16 5l-4.5 4H9l3-3H0z"/></svg>';
   var grid = document.getElementById("prodGrid");
   CATS.forEach(function(c, i){
-    var d = document.createElement("div");
-    d.className = "val";
-    d.dataset.sku = c.sku;
-    d.innerHTML = '<p class="val__k"><span class="val__n">' + ("0" + (i + 1)) + '</span><span class="val__sku"></span></p>' +
-      '<h3 class="val__t"></h3><p class="val__d"></p>' +
-      '<svg class="val__ico" aria-hidden="true" focusable="false"><use href="#' + c.icon + '"></use></svg>';
-    grid.appendChild(d);
+    var a = document.createElement("article");
+    a.className = "pcard";
+    a.dataset.sku = c.sku;
+    a.innerHTML =
+      '<div class="pcard__in">' +
+        '<div class="pcard__top">' +
+          '<span class="tile"><svg aria-hidden="true" focusable="false"><use href="#' + c.icon + '"></use></svg></span>' +
+          '<span class="pcard__n">' + ("0" + (i + 1)) + '</span>' +
+        '</div>' +
+        '<p class="pcard__sku">' + c.sku + '</p>' +
+        '<h3 class="pcard__t"></h3>' +
+        '<p class="pcard__d"></p>' +
+        '<ul class="pcard__tags"></ul>' +
+        '<a class="pcard__go" href="#quote"><span></span>' + ARROW + '</a>' +
+      '</div>';
+    grid.appendChild(a);
   });
 
   function paintGrid(){
     CATS.forEach(function(c){
       var d = grid.querySelector('[data-sku="' + c.sku + '"]');
-      d.querySelector(".val__sku").textContent = c.sku;
-      d.querySelector(".val__t").textContent = c[lang].title;
-      d.querySelector(".val__d").textContent = c[lang].desc;
+      var t = c[lang];
+      d.querySelector(".pcard__t").textContent = t.title;
+      d.querySelector(".pcard__d").textContent = t.desc;
+      var ul = d.querySelector(".pcard__tags");
+      ul.textContent = "";
+      t.items.slice(0, 4).forEach(function(x){
+        var li = document.createElement("li");
+        li.textContent = x;
+        ul.appendChild(li);
+      });
+      d.querySelector(".pcard__go span").textContent = (lang === "en") ? "Quote this category" : "ขอราคาหมวดนี้";
     });
   }
+
+  /* "quote this category" pre-fills the request form */
+  grid.addEventListener("click", function(e){
+    var go = e.target.closest(".pcard__go");
+    if (!go) return;
+    var cat = byPort[go.closest(".pcard").dataset.sku];
+    var box = document.getElementById("fItems");
+    var line = ((lang === "en") ? "Category: " : "หมวด: ") + cat[lang].title;
+    if (box.value.indexOf(line) < 0) box.value = line + "\n" + box.value;
+  });
+
+  /* stagger order for lists that reveal on scroll */
+  document.querySelectorAll(".stag").forEach(function(list){
+    Array.prototype.forEach.call(list.children, function(el, i){ el.style.setProperty("--i", i); });
+  });
 
   /* ---------- brand marquee: duplicate the list for a seamless loop ---------- */
   var track = document.getElementById("marquee");
@@ -1125,12 +1369,18 @@ a.contact__v:hover{color:var(--blue-soft)}
   if ("IntersectionObserver" in window && !reduce){
     var io = new IntersectionObserver(function(entries){
       entries.forEach(function(e){
-        if (e.isIntersecting){ e.target.classList.add("seen"); io.unobserve(e.target); }
+        if (e.isIntersecting){
+          var t = e.target;
+          t.classList.add("seen");
+          io.unobserve(t);
+          /* hand staggered lists back to normal hover behaviour once they have entered */
+          if (t.classList.contains("stag")) setTimeout(function(){ t.classList.remove("stag", "seen"); }, 1400);
+        }
       });
     }, { threshold:.12, rootMargin:"0px 0px -60px 0px" });
-    document.querySelectorAll(".obs").forEach(function(n){ io.observe(n); });
+    document.querySelectorAll(".obs, .stag").forEach(function(n){ io.observe(n); });
   } else {
-    document.querySelectorAll(".obs").forEach(function(n){ n.classList.add("seen"); });
+    document.querySelectorAll(".obs, .stag").forEach(function(n){ n.classList.add("seen"); });
   }
 
   /* ---------- active nav link + floating LINE button ---------- */
