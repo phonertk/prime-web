@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PRIME TRADE SYSTEM — จัดหาคอมพิวเตอร์ อุปกรณ์เครือข่าย และไลเซนส์ซอฟต์แวร์</title>
+<meta name="description" content="จัดหาคอมพิวเตอร์ อุปกรณ์เครือข่าย ไลเซนส์ซอฟต์แวร์ และอุปกรณ์ไอทีสำหรับองค์กร สินค้าของแท้ ใบรับประกันศูนย์ไทย ออกใบกำกับภาษีเต็มรูปแบบ ใบเสนอราคาภายใน 24 ชั่วโมง">
+<meta name="theme-color" content="#0A1428">
+<link rel="icon" href="favicon.png" sizes="32x32">
+<link rel="icon" href="icon.png" sizes="512x512">
+<link rel="apple-touch-icon" href="icon.png">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="PRIME TRADE SYSTEM">
+<meta property="og:title" content="PRIME TRADE SYSTEM — จัดหาอุปกรณ์ไอทีสำหรับองค์กร">
+<meta property="og:description" content="คอมพิวเตอร์ เครือข่าย ไลเซนส์ และอุปกรณ์ไอทีครบวงจร ใบเสนอราคาภายใน 24 ชั่วโมง">
+<meta property="og:image" content="icon.png">
+<meta property="og:locale" content="th_TH">
+<meta name="twitter:card" content="summary">
+
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Organization",
+  "name":"Prime Trade System Co., Ltd.",
+  "alternateName":"บริษัท ไพร์ม เทรด ซิสเต็ม จำกัด",
+  "taxID":"0255569000443",
+  "email":"sales.primetradesystems@gmail.com",
+  "telephone":"+66642133140",
+  "logo":"icon.png"
+}
+</script>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans+Thai:wght@400;500;600&family=Michroma&display=swap" rel="stylesheet">
+
+<style>
+/* =========================================================
+   PRIME TRADE SYSTEM — brand system
+   Everything visual is derived from the logo mark:
+   slanted stripes, a stepped notch, and a white→navy fade.
+   ========================================================= */
+:root{
+  /* navy scale (from the icon background) */
+  --navy-950:#060D1B;
+  --navy:#0A1428;
+  --navy-2:#0E1D38;
+  --steel:#1E3557;
+  --steel-soft:#2A4770;
+
+  /* silver scale (from the mark's white and its fade) */
+  --white:#FFFFFF;
+  --silver:#C6D2E1;
+  --muted-dark:#8FA6C0;
+
+  /* light surfaces */
+  --paper:#F4F7FA;
+  --paper-2:#E8EEF5;
+  --rule:#D5DFEA;
+  --ink:#0A1428;
+  --muted:#5C7089;
+
+  /* accents */
+  --blue:#3F6DFF;
+  --blue-hover:#2F5BEB;
+  --blue-soft:#8AA8FF;
+  --signal:#FFB020;
+
+  /* the mark's fade, reused as the brand "streak" */
+  --streak:linear-gradient(90deg,#fff 0%,#fff 38%,rgba(255,255,255,0) 100%);
+  --streak-ink:linear-gradient(90deg,var(--ink) 0%,var(--ink) 38%,rgba(10,20,40,0) 100%);
+
+  /* the mark's slant — used for every cut corner */
+  --cut:12px;
+
+  --wide:"Michroma","Chakra Petch",system-ui,sans-serif;
+  --display:"Chakra Petch",system-ui,sans-serif;
+  --body:"IBM Plex Sans Thai",system-ui,sans-serif;
+  --mono:"IBM Plex Mono","IBM Plex Sans Thai",monospace;
+
+  --shell:1200px;
+  --pad:clamp(20px,5vw,40px);
+  --ease:cubic-bezier(.2,.7,.3,1);
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scroll-padding-top:76px}
+body{
+  font-family:var(--body);
+  background:var(--paper);
+  color:var(--ink);
+  line-height:1.65;
+  font-size:16px;
+  overflow-x:hidden;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+::selection{background:var(--blue);color:#fff}
+:focus-visible{outline:2px solid var(--signal);outline-offset:3px;border-radius:2px}
+
+.shell{width:100%;max-width:var(--shell);margin-inline:auto;padding-inline:var(--pad)}
+
+.skip{position:absolute;left:-9999px;top:0;background:var(--signal);color:var(--ink);padding:12px 20px;z-index:999;font-weight:600}
+.skip:focus{left:0}
+
+/* ---------- brand primitives ---------- */
+
+/* parallelogram, same slant as the logo stripes */
+.slant{clip-path:polygon(var(--cut) 0,100% 0,calc(100% - var(--cut)) 100%,0 100%)}
+/* cut corner (top-right), for cards */
+.notch{clip-path:polygon(0 0,calc(100% - 22px) 0,100% 22px,100% 100%,0 100%)}
+
+/* the logo stripe as a rule: thick left part, a stepped notch, thin tail */
+.streak{
+  display:block;height:8px;width:100%;
+  background:var(--streak-ink);
+  clip-path:polygon(0 100%,8px 0,34% 0,calc(34% - 5px) 5px,100% 5px,calc(100% - 3px) 100%);
+}
+.streak--light{background:var(--streak)}
+
+/* eyebrow: two stepped mini-stripes instead of a plain line */
+.eyebrow{
+  font-family:var(--mono);font-size:11px;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--blue);
+  display:flex;align-items:center;gap:14px;margin-bottom:18px;
+}
+.eyebrow::before{
+  content:"";flex:none;width:22px;height:3px;margin-bottom:6px;
+  background:currentColor;transform:skewX(-45deg);
+  box-shadow:9px 5px 0 0 currentColor;
+}
+.eyebrow--light{color:var(--blue-soft)}
+
+.h2{font-family:var(--display);font-weight:700;font-size:clamp(28px,4vw,46px);line-height:1.16;letter-spacing:-.01em}
+.lede{color:var(--muted);max-width:56ch;margin-top:14px;font-size:clamp(15px,1.6vw,17px)}
+
+/* ---------- buttons ---------- */
+.btn{
+  position:relative;isolation:isolate;
+  display:inline-flex;align-items:center;justify-content:center;gap:10px;
+  font-family:var(--body);font-weight:600;font-size:15px;
+  padding:14px 30px;border:0;
+  text-decoration:none;cursor:pointer;
+  clip-path:polygon(var(--cut) 0,100% 0,calc(100% - var(--cut)) 100%,0 100%);
+  transition:background .2s,color .2s,transform .12s;
+}
+.btn:active{transform:translateY(1px)}
+.btn__arw{width:16px;height:10px;transition:transform .25s var(--ease)}
+.btn:hover .btn__arw{transform:translateX(4px)}
+
+.btn--primary{background:var(--blue);color:#fff}
+.btn--primary:hover{background:var(--blue-hover)}
+/* a light sweep across the button, like the mark's fade */
+.btn--primary::after{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.28) 50%,transparent 70%);
+  transform:translateX(-120%);transition:transform .6s var(--ease);
+}
+.btn--primary:hover::after{transform:translateX(120%)}
+
+/* ghost: 1px outline done with an inset layer, so the slant survives */
+.btn--ghost{background:var(--steel-soft);color:#fff}
+.btn--ghost::before{
+  content:"";position:absolute;inset:1px;z-index:-1;background:var(--navy);
+  clip-path:polygon(calc(var(--cut) - 1px) 0,100% 0,calc(100% - var(--cut) + 1px) 100%,0 100%);
+  transition:background .2s;
+}
+.btn--ghost:hover{background:var(--blue-soft)}
+.btn--ghost:hover::before{background:var(--navy-2)}
+
+.btn--sm{padding:10px 22px;font-size:14px;--cut:9px}
+.btn--wide{width:100%}
+
+/* ---------- header ---------- */
+.hdr{
+  position:sticky;top:0;z-index:100;
+  background:rgba(10,20,40,.88);
+  backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(138,168,255,.12);
+}
+.hdr__in{display:flex;align-items:center;justify-content:space-between;gap:18px;height:70px}
+.hdr__right{display:flex;align-items:center;gap:12px}
+
+.brand{display:flex;align-items:center;text-decoration:none;flex:none}
+.brand__logo{height:30px;width:auto;display:block}
+@media(max-width:520px){.brand__logo{height:23px}}
+
+.nav{display:flex;align-items:center;gap:30px}
+.nav a{
+  position:relative;color:var(--muted-dark);text-decoration:none;
+  font-size:14.5px;font-weight:500;transition:color .2s;padding-block:6px;
+}
+.nav a::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:2px;
+  background:var(--streak);transform:scaleX(0);transform-origin:left;
+  transition:transform .3s var(--ease);
+}
+.nav a:hover,.nav a.is-here{color:#fff}
+.nav a:hover::after,.nav a.is-here::after{transform:scaleX(1)}
+@media(max-width:980px){.nav{display:none}}
+
+.lang{display:flex;background:var(--steel);flex:none;clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%)}
+.lang__b{
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.1em;
+  background:transparent;color:var(--muted-dark);
+  border:0;padding:8px 14px;cursor:pointer;
+  transition:background .18s,color .18s;
+}
+.lang__b:hover{color:#fff}
+.lang__b.is-on{background:var(--blue);color:#fff}
+
+.menu-b{
+  display:none;width:42px;height:38px;border:0;cursor:pointer;
+  background:var(--steel);color:#fff;
+  clip-path:polygon(8px 0,100% 0,calc(100% - 8px) 100%,0 100%);
+  align-items:center;justify-content:center;
+}
+.menu-b svg{width:20px;height:14px}
+@media(max-width:980px){.menu-b{display:inline-flex}}
+@media(max-width:560px){.hdr .btn--sm{display:none}}
+
+.mnav{
+  display:none;border-top:1px solid var(--steel);
+  background:var(--navy);padding:8px var(--pad) 20px;
+}
+.mnav.is-open{display:block}
+.mnav a{
+  display:flex;justify-content:space-between;align-items:center;
+  color:var(--silver);text-decoration:none;font-weight:500;
+  padding:14px 0;border-bottom:1px solid var(--steel);
+}
+.mnav a span{font-family:var(--mono);font-size:11px;color:var(--muted)}
+@media(min-width:981px){.mnav{display:none!important}}
+
+/* ---------- hero ---------- */
+.hero{
+  background:
+    radial-gradient(ellipse 70% 60% at 85% 20%,rgba(63,109,255,.16),transparent 70%),
+    var(--navy);
+  color:#fff;position:relative;overflow:hidden;
+  padding-block:clamp(56px,8vw,96px) clamp(48px,7vw,80px);
+}
+/* the brand mark, large, sliding in from the left like motion lines */
+.hero__mark{
+  position:absolute;pointer-events:none;
+  right:clamp(-220px,-10vw,-60px);top:clamp(-10px,1vw,20px);
+  width:clamp(420px,52vw,760px);height:auto;opacity:.11;
+}
+@media(max-width:700px){.hero__mark{top:auto;bottom:38%;opacity:.08}}
+.hero__mark .s{transform:translateX(-80px);opacity:0;animation:streakIn 1.1s var(--ease) forwards}
+.hero__mark .s2{animation-delay:.12s}
+.hero__mark .s3{animation-delay:.24s}
+@keyframes streakIn{to{transform:none;opacity:1}}
+
+.hero__in{position:relative;z-index:1}
+.hero__head{max-width:800px}
+.hero h1{font-family:var(--display);font-weight:700;font-size:clamp(36px,6.4vw,70px);line-height:1.08;letter-spacing:-.015em}
+.hero h1 .hl{
+  background:linear-gradient(90deg,#fff 0%,var(--blue-soft) 55%,var(--blue) 100%);
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.hero__sub{margin-top:24px;font-size:clamp(16px,1.9vw,19px);color:var(--muted-dark);max-width:56ch}
+.hero__cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:36px}
+
+/* key facts — each one sits on a slanted plate */
+.facts{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:10px;
+  margin-top:clamp(40px,6vw,60px);list-style:none;
+}
+@media(max-width:860px){.facts{grid-template-columns:repeat(2,1fr)}}
+.fact{
+  position:relative;padding:16px 22px 16px 26px;
+  background:linear-gradient(90deg,rgba(30,53,87,.55),rgba(30,53,87,.12));
+  clip-path:polygon(14px 0,100% 0,calc(100% - 14px) 100%,0 100%);
+}
+.fact__n{font-family:var(--wide);font-size:clamp(17px,2.2vw,22px);letter-spacing:.02em;color:#fff;line-height:1.3;display:block}
+.fact__l{font-size:13.5px;color:var(--muted-dark);display:block;margin-top:2px}
+
+.rise{opacity:0;transform:translateY(18px);animation:rise .8s var(--ease) forwards}
+.rise:nth-child(1){animation-delay:.05s}
+.rise:nth-child(2){animation-delay:.14s}
+.rise:nth-child(3){animation-delay:.23s}
+.rise:nth-child(4){animation-delay:.32s}
+@keyframes rise{to{opacity:1;transform:none}}
+
+/* ---------- port panel ---------- */
+.panel{
+  margin-top:clamp(28px,4vw,40px);
+  background:linear-gradient(180deg,var(--navy-2),#0B1730);
+  box-shadow:0 24px 60px -30px rgba(0,0,0,.9);
+  position:relative;
+  clip-path:polygon(0 0,calc(100% - 28px) 0,100% 28px,100% 100%,0 100%);
+}
+.panel::before{ /* hairline border that follows the cut corner */
+  content:"";position:absolute;inset:0;pointer-events:none;
+  border:1px solid var(--steel);
+  clip-path:polygon(0 0,calc(100% - 28px) 0,100% 28px,100% 100%,0 100%);
+}
+.panel__cut{ /* the diagonal edge line */
+  position:absolute;right:0;top:0;width:40px;height:40px;pointer-events:none;
+  background:linear-gradient(225deg,transparent 19px,var(--steel) 19px,var(--steel) 20.4px,transparent 20.4px);
+}
+.panel__bar{
+  display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;
+  padding:13px 44px 13px 20px;border-bottom:1px solid var(--steel);
+  background:rgba(255,255,255,.02);
+  font-family:var(--mono);font-size:11px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--muted-dark);
+}
+.panel__pwr{display:flex;align-items:center;gap:9px}
+.panel__pwr i{width:7px;height:7px;border-radius:50%;background:var(--signal);box-shadow:0 0 9px var(--signal);flex:none}
+
+.ports{
+  display:grid;grid-template-columns:repeat(8,1fr);
+  gap:clamp(8px,1.2vw,14px);
+  padding:clamp(18px,3vw,30px);
+}
+@media(max-width:940px){.ports{grid-template-columns:repeat(4,1fr)}}
+
+.port{
+  position:relative;
+  display:flex;flex-direction:column;align-items:center;gap:11px;
+  padding:15px 6px 13px;
+  background:linear-gradient(180deg,rgba(30,53,87,.34),rgba(10,23,48,.55));
+  border:1px solid var(--steel);border-radius:4px;
+  cursor:pointer;opacity:0;color:inherit;font:inherit;
+  transition:border-color .25s,background .25s,transform .22s,box-shadow .25s;
+}
+.port__bevel{
+  position:absolute;left:1px;right:1px;top:1px;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.14),transparent);
+  pointer-events:none;
+}
+.port.is-on{opacity:1}
+
+.jack{
+  position:relative;
+  width:clamp(44px,5.2vw,60px);aspect-ratio:1/.94;
+  background:linear-gradient(180deg,#060D1C,#0A1428);
+  border:1px solid #24406B;border-radius:3px;
+  box-shadow:inset 0 3px 9px rgba(0,0,0,.8),inset 0 -1px 0 rgba(255,255,255,.05);
+}
+.jack::before{
+  content:"";position:absolute;left:50%;top:-1px;transform:translateX(-50%);
+  width:36%;height:28%;
+  background:linear-gradient(180deg,#04091A,#070E1F);
+  border:1px solid #24406B;border-top:0;border-radius:0 0 3px 3px;
+}
+.jack::after{
+  content:"";position:absolute;left:50%;top:34%;transform:translateX(-50%);
+  width:64%;height:30%;
+  background:repeating-linear-gradient(90deg,#C9A227 0 1.5px,transparent 1.5px 6px);
+  opacity:.42;transition:opacity .3s;
+}
+
+.port__led{width:6px;height:6px;border-radius:50%;background:#152744;flex:none;transition:background .3s,box-shadow .3s}
+.port__sku{font-family:var(--mono);font-size:10px;letter-spacing:.09em;color:var(--muted);white-space:nowrap;transition:color .25s}
+@media(max-width:420px){.port__sku{font-size:9px;letter-spacing:.04em}}
+
+.port.is-on .port__led{background:var(--blue);box-shadow:0 0 9px var(--blue);animation:blink 2.8s ease-in-out infinite}
+.port:hover,.port:focus-visible{border-color:var(--steel-soft);transform:translateY(-3px)}
+.port:hover .port__sku,.port:focus-visible .port__sku{color:var(--muted-dark)}
+.port:hover .jack::after{opacity:.7}
+
+.port.is-active{
+  border-color:var(--blue);transform:translateY(-3px);
+  background:linear-gradient(180deg,rgba(63,109,255,.2),rgba(10,23,48,.6));
+  box-shadow:0 0 0 1px rgba(63,109,255,.3),0 14px 30px -16px rgba(63,109,255,.85);
+}
+.port.is-active .jack{border-color:#3C5F96}
+.port.is-active .jack::after{opacity:1}
+.port.is-active .port__sku{color:#fff}
+.port.is-active .port__led{background:var(--signal);box-shadow:0 0 12px var(--signal);animation:none}
+@keyframes blink{0%,100%{opacity:1}46%{opacity:1}50%{opacity:.3}54%{opacity:1}}
+
+.readout{
+  border-top:1px solid var(--steel);
+  padding:clamp(20px,2.8vw,28px) clamp(18px,3vw,30px);
+  display:grid;grid-template-columns:78px 1fr;gap:clamp(18px,3vw,30px);
+  align-items:start;min-height:150px;background:rgba(0,0,0,.2);
+}
+@media(max-width:620px){.readout{grid-template-columns:1fr;gap:14px;min-height:0}}
+.readout__key{display:flex;flex-direction:column;align-items:flex-start;gap:10px}
+.readout__ico{width:44px;height:44px;color:var(--blue-soft);opacity:.9}
+.readout__sku{font-family:var(--mono);font-size:11px;letter-spacing:.1em;color:var(--signal)}
+.readout__t{font-family:var(--display);font-weight:600;font-size:clamp(19px,2.6vw,25px);line-height:1.3;color:#fff}
+.readout__d{color:var(--muted-dark);font-size:15px;margin-top:8px;max-width:62ch}
+.readout__items{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
+.readout__items span{
+  font-family:var(--mono);font-size:11.5px;color:var(--silver);
+  background:var(--steel);padding:4px 13px;
+  clip-path:polygon(6px 0,100% 0,calc(100% - 6px) 100%,0 100%);
+}
+.readout__hint{color:var(--muted);font-size:14.5px;font-family:var(--mono);letter-spacing:.03em}
+.readout__body{animation:fade .3s ease}
+@keyframes fade{from{opacity:0;transform:translateY(5px)}to{opacity:1}}
+
+/* ---------- brand marquee ---------- */
+.supply{background:var(--navy-2);border-top:1px solid var(--steel);color:var(--muted-dark);padding-block:22px;overflow:hidden}
+.supply__in{display:flex;align-items:center;gap:clamp(18px,4vw,40px)}
+.supply__lbl{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);flex:none}
+.marquee{
+  flex:1;min-width:0;overflow:hidden;
+  mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);
+}
+.marquee__track{display:flex;width:max-content;animation:slide 38s linear infinite}
+.marquee:hover .marquee__track{animation-play-state:paused}
+.supply__list{display:flex;align-items:center;list-style:none;flex:none}
+.supply__list li{
+  font-family:var(--wide);font-size:clamp(13px,1.5vw,15px);letter-spacing:.08em;
+  color:var(--silver);white-space:nowrap;display:flex;align-items:center;
+}
+.supply__list li::after{ /* slash separator in the mark's slant */
+  content:"";width:10px;height:3px;background:var(--steel-soft);
+  transform:skewX(-45deg);margin-inline:clamp(20px,3vw,34px);
+}
+@keyframes slide{to{transform:translateX(-50%)}}
+@media(max-width:620px){.supply__in{flex-direction:column;align-items:flex-start;gap:12px}.marquee{width:100%}}
+
+/* ---------- sections ---------- */
+.sec{padding-block:clamp(64px,9vw,108px)}
+.sec--tint{background:var(--paper-2)}
+.sec__head{max-width:660px;margin-bottom:clamp(36px,5vw,54px)}
+.sec__head .streak{width:120px;margin-top:26px}
+
+.vals{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+@media(max-width:1080px){.vals{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:560px){.vals{grid-template-columns:1fr}}
+
+.val{
+  background:#fff;padding:clamp(24px,3vw,32px);position:relative;overflow:hidden;
+  clip-path:polygon(0 0,calc(100% - 22px) 0,100% 22px,100% 100%,0 100%);
+  transition:transform .3s var(--ease),box-shadow .3s;
+}
+.sec--tint .val{background:var(--paper)}
+.val::after{ /* streak bar grows along the bottom on hover */
+  content:"";position:absolute;left:0;right:0;bottom:0;height:3px;
+  background:linear-gradient(90deg,var(--blue),var(--blue) 40%,rgba(63,109,255,0));
+  transform:scaleX(.18);transform-origin:left;transition:transform .45s var(--ease);
+}
+.val:hover{transform:translateY(-4px)}
+.val:hover::after{transform:scaleX(1)}
+.val__ico{
+  position:absolute;right:-16px;bottom:-16px;
+  width:136px;height:136px;
+  color:var(--ink);opacity:.07;
+  pointer-events:none;
+  transition:opacity .35s ease,transform .35s ease;
+}
+.val:hover .val__ico{opacity:.12;transform:translate(-6px,-6px)}
+.val__k,.val__t,.val__d{position:relative;z-index:1}
+.val__k{
+  font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--blue);margin-bottom:14px;display:flex;align-items:center;gap:10px;
+}
+.val__n{font-family:var(--wide);font-size:12px;letter-spacing:.04em;color:var(--muted)}
+.val__t{font-family:var(--display);font-weight:600;font-size:19px;line-height:1.35;margin-bottom:9px}
+.val__d{color:var(--muted);font-size:15px}
+
+/* process: each step is topped with the logo stripe */
+.flow{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:clamp(22px,3vw,32px);counter-reset:step}
+.step{counter-increment:step}
+.step .streak{margin-bottom:22px}
+.step__n{font-family:var(--mono);font-size:12px;letter-spacing:.14em;color:var(--muted);margin-bottom:12px;display:flex;align-items:baseline;gap:10px}
+.step__n::before{content:"0" counter(step);font-family:var(--wide);font-size:26px;letter-spacing:0;color:var(--ink);line-height:1}
+.step__t{font-family:var(--display);font-weight:600;font-size:18px;margin-bottom:7px}
+.step__d{color:var(--muted);font-size:15px}
+
+/* ---------- quote ---------- */
+.quote{
+  background:var(--navy);color:#fff;position:relative;overflow:hidden;
+  padding-block:clamp(84px,11vw,124px) clamp(64px,9vw,100px);
+  clip-path:polygon(0 clamp(24px,4vw,56px),100% 0,100% 100%,0 100%);
+  margin-top:calc(-1 * clamp(24px,4vw,56px));
+}
+.quote__mark{position:absolute;left:-120px;bottom:-40px;width:620px;opacity:.06;pointer-events:none}
+.quote__grid{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,6vw,72px);align-items:start}
+@media(max-width:840px){.quote__grid{grid-template-columns:1fr}}
+.quote h2{color:#fff}
+.quote .lede{color:var(--muted-dark)}
+
+.contact{margin-top:34px;display:grid;gap:8px}
+.contact__row{
+  background:var(--navy-2);padding:15px 26px 15px 22px;
+  display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;
+  clip-path:polygon(0 0,100% 0,calc(100% - 12px) 100%,0 100%);
+  border-left:3px solid var(--steel-soft);transition:border-color .2s,background .2s;
+}
+.contact__row:hover{border-left-color:var(--blue);background:#112244}
+.contact__k{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.contact__v{font-weight:600;font-size:16px;color:#fff;text-decoration:none;word-break:break-all}
+a.contact__v:hover{color:var(--blue-soft)}
+
+.card{
+  background:var(--navy-2);padding:clamp(24px,3.4vw,36px);position:relative;
+  clip-path:polygon(0 0,calc(100% - 28px) 0,100% 28px,100% 100%,0 100%);
+}
+.card .streak{width:90px;margin-bottom:22px}
+.card__t{font-family:var(--display);font-weight:600;font-size:21px;margin-bottom:6px}
+.card__s{color:var(--muted-dark);font-size:14.5px;margin-bottom:24px}
+
+.field{margin-bottom:16px}
+.field label{display:block;font-family:var(--mono);font-size:11px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted-dark);margin-bottom:7px}
+.field input,.field textarea{
+  width:100%;font-family:var(--body);font-size:15px;color:#fff;
+  background:rgba(0,0,0,.28);border:0;border-bottom:1px solid var(--steel-soft);
+  padding:12px 14px;transition:border-color .2s,background .2s;border-radius:0;
+}
+.field input:focus,.field textarea:focus{outline:none;border-bottom-color:var(--blue);background:rgba(0,0,0,.4)}
+.field textarea{resize:vertical;min-height:110px}
+.field input::placeholder,.field textarea::placeholder{color:#4E668A}
+.note{font-size:13px;color:var(--muted);margin-top:14px;line-height:1.6}
+
+/* ---------- footer ---------- */
+.ftr{background:var(--navy-950);color:var(--muted);padding-block:0 40px}
+.ftr .streak{height:6px;opacity:.14;margin-bottom:40px}
+.ftr__in{display:flex;justify-content:space-between;gap:26px;flex-wrap:wrap;align-items:flex-end;font-size:14px}
+.ftr__logo{height:32px;width:auto;display:block;margin-bottom:16px;opacity:.9}
+.ftr__links{display:flex;gap:22px;flex-wrap:wrap}
+.ftr__links a{text-decoration:none;transition:color .2s}
+.ftr__links a:hover{color:var(--blue-soft)}
+
+/* ---------- floating LINE ---------- */
+.fab{
+  position:fixed;right:clamp(14px,3vw,26px);bottom:clamp(14px,3vw,26px);z-index:90;
+  display:inline-flex;align-items:center;gap:10px;
+  background:var(--blue);color:#fff;text-decoration:none;
+  font-weight:600;font-size:14px;padding:12px 24px;
+  clip-path:polygon(10px 0,100% 0,calc(100% - 10px) 100%,0 100%);
+  box-shadow:0 10px 30px -10px rgba(63,109,255,.8);
+  transform:translateY(120%);opacity:0;
+  transition:transform .4s var(--ease),opacity .4s,background .2s;
+}
+.fab.is-show{transform:none;opacity:1}
+.fab:hover{background:var(--blue-hover)}
+.fab svg{width:18px;height:18px}
+
+.obs{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s var(--ease)}
+.obs.seen{opacity:1;transform:none}
+
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
+  .rise,.obs,.hero__mark .s{opacity:1;transform:none}
+  .port{opacity:1}
+  .marquee__track{animation:none;flex-wrap:wrap}
+}
+</style>
+</head>
+<body>
+
+<a class="skip" href="#main" data-en="Skip to main content">ข้ามไปยังเนื้อหาหลัก</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="markFadeA" x1="47" y1="0" x2="330" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff"/><stop offset=".48" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="markFadeB" x1="212" y1="0" x2="468" y2="0" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#fff"/><stop offset=".5" stop-color="#fff"/><stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <symbol id="i-cpu" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="26" y="26" width="68" height="46" rx="3"/>
+    <path d="M16 88h88l-8-14H24z"/>
+    <path d="M52 82h16"/>
+  </symbol>
+  <symbol id="i-mob" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="16" y="24" width="50" height="70" rx="5"/>
+    <path d="M33 86h16"/>
+    <rect x="76" y="42" width="30" height="52" rx="5"/>
+    <path d="M86 88h10"/>
+  </symbol>
+  <symbol id="i-net" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="10" y="42" width="100" height="34" rx="3"/>
+    <rect x="20" y="52" width="9" height="14" rx="1"/>
+    <rect x="34" y="52" width="9" height="14" rx="1"/>
+    <rect x="48" y="52" width="9" height="14" rx="1"/>
+    <rect x="62" y="52" width="9" height="14" rx="1"/>
+    <path d="M86 54h14M86 64h14"/>
+  </symbol>
+  <symbol id="i-lic" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M30 16h38l22 22v66H30z"/>
+    <path d="M68 16v22h22"/>
+    <path d="M44 66l10 11 22-25"/>
+  </symbol>
+  <symbol id="i-srv" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="28" y="16" width="64" height="88" rx="3"/>
+    <path d="M28 46h64M28 74h64"/>
+    <circle cx="41" cy="31" r="2.6"/>
+    <circle cx="41" cy="60" r="2.6"/>
+    <circle cx="41" cy="89" r="2.6"/>
+    <path d="M55 31h24M55 60h24M55 89h24"/>
+  </symbol>
+  <symbol id="i-sec" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="18" y="34" width="60" height="28" rx="14"/>
+    <circle cx="66" cy="48" r="8"/>
+    <path d="M44 62v28M30 90h28"/>
+  </symbol>
+  <symbol id="i-gam" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="12" y="36" width="96" height="48" rx="12"/>
+    <rect x="44" y="47" width="32" height="26" rx="2"/>
+    <path d="M22 60h17M30.5 51.5v17"/>
+    <circle cx="90" cy="54" r="3.4"/>
+    <circle cx="98" cy="66" r="3.4"/>
+  </symbol>
+  <symbol id="i-prp" viewBox="0 0 120 120" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M38 40V18h44v22"/>
+    <rect x="22" y="40" width="76" height="38" rx="3"/>
+    <path d="M38 78h44v24H38z"/>
+    <circle cx="86" cy="52" r="2.6"/>
+  </symbol>
+</svg>
+
+<header class="hdr">
+  <div class="shell hdr__in">
+    <a class="brand" href="#top">
+      <img class="brand__logo" src="logo-white.png" alt="PRIME TRADE SYSTEM" width="1440" height="303">
+    </a>
+
+    <nav class="nav" aria-label="เมนูหลัก">
+      <a href="#products" data-en="Products">สินค้า</a>
+      <a href="#why" data-en="Why us">ทำไมต้องเรา</a>
+      <a href="#process" data-en="How to order">ขั้นตอนสั่งซื้อ</a>
+      <a href="#quote" data-en="Contact">ติดต่อ</a>
+    </nav>
+
+    <div class="hdr__right">
+      <div class="lang" role="group" aria-label="Language / ภาษา">
+        <button class="lang__b is-on" type="button" data-lang="th" aria-pressed="true">TH</button>
+        <button class="lang__b" type="button" data-lang="en" aria-pressed="false">EN</button>
+      </div>
+      <a class="btn btn--primary btn--sm" href="#quote" data-en="Request a quote">ขอใบเสนอราคา</a>
+      <button class="menu-b" id="menuBtn" type="button" aria-expanded="false" aria-controls="mnav" aria-label="Menu">
+        <svg viewBox="0 0 20 14" fill="currentColor" aria-hidden="true"><path d="M3 0h17l-2 3H1zM3 5.5h17l-2 3H1zM3 11h11l-2 3H1z"/></svg>
+      </button>
+    </div>
+  </div>
+  <nav class="mnav" id="mnav" aria-label="เมนูมือถือ">
+    <a href="#products"><b data-en="Products">สินค้า</b><span>01</span></a>
+    <a href="#why"><b data-en="Why us">ทำไมต้องเรา</b><span>02</span></a>
+    <a href="#process"><b data-en="How to order">ขั้นตอนสั่งซื้อ</b><span>03</span></a>
+    <a href="#quote"><b data-en="Contact">ติดต่อ</b><span>04</span></a>
+  </nav>
+</header>
+
+<main id="main">
+
+<!-- ============ HERO ============ -->
+<section class="hero" id="top">
+  <svg class="hero__mark" viewBox="40 195 432 122" aria-hidden="true" focusable="false">
+    <path class="s"    fill="#fff" d="M47 228 77 202H262L241 217H465L452 228Z"/>
+    <path class="s s2" fill="url(#markFadeA)" d="M47 297 78 276H330V297Z"/>
+    <path class="s s3" fill="url(#markFadeB)" d="M212 310 232 297H322L340 286H468V310Z"/>
+  </svg>
+
+  <div class="shell hero__in">
+    <div class="hero__head">
+      <p class="eyebrow eyebrow--light rise" data-en="Enterprise IT procurement">จัดหาอุปกรณ์ไอทีสำหรับองค์กร</p>
+      <h1 class="rise">
+        <span data-en="Every port covered.">ของแท้ ครบทุกพอร์ต</span><br>
+        <span class="hl" data-en="Quoted in 24 hours.">เสนอราคาใน 24 ชั่วโมง</span>
+      </h1>
+      <p class="hero__sub rise" data-en="We supply computers, network equipment, software licences and IT hardware to organisations that need the genuine article, a valid warranty and complete procurement paperwork.">
+        เราจัดหาคอมพิวเตอร์ อุปกรณ์เครือข่าย ไลเซนส์ซอฟต์แวร์ และอุปกรณ์ไอทีทุกประเภท
+        ให้องค์กรที่ต้องการของแท้ มีใบรับประกัน และเอกสารจัดซื้อที่ครบถ้วน
+      </p>
+      <div class="hero__cta rise">
+        <a class="btn btn--primary" href="#quote">
+          <span data-en="Request a quote">ขอใบเสนอราคา</span>
+          <svg class="btn__arw" viewBox="0 0 16 10" fill="currentColor" aria-hidden="true"><path d="M0 4h12L9 1h2.5L16 5l-4.5 4H9l3-3H0z"/></svg>
+        </a>
+        <a class="btn btn--ghost" href="#products" data-en="Browse categories">ดูหมวดสินค้า</a>
+      </div>
+    </div>
+
+    <ul class="facts rise">
+      <li class="fact"><span class="fact__n" data-en="24 hrs">24 ชม.</span><span class="fact__l" data-en="Quotation turnaround">ส่งใบเสนอราคา</span></li>
+      <li class="fact"><span class="fact__n" data-en="30 days">30 วัน</span><span class="fact__l" data-en="Corporate credit terms">เครดิตเทอมองค์กร</span></li>
+      <li class="fact"><span class="fact__n" data-en="08 lines">08 หมวด</span><span class="fact__l" data-en="Product categories">หมวดสินค้าไอที</span></li>
+      <li class="fact"><span class="fact__n" data-en="Local">ศูนย์ไทย</span><span class="fact__l" data-en="Warranty on every unit">รับประกันทุกชิ้น</span></li>
+    </ul>
+
+    <div class="panel rise">
+      <span class="panel__cut" aria-hidden="true"></span>
+      <div class="panel__bar">
+        <span class="panel__pwr"><i></i> prime trade system · supply panel</span>
+        <span data-en="08 ports &middot; all linked">8 พอร์ต &middot; เชื่อมต่อครบ</span>
+      </div>
+
+      <div class="ports" id="ports" role="group" aria-label="เลือกหมวดสินค้าจากแผงพอร์ต"></div>
+
+      <div class="readout" id="readout">
+        <div class="readout__key" id="rKey"></div>
+        <div>
+          <p class="readout__hint" data-en="Hover or tap a port to see the category">ชี้หรือกดที่พอร์ตเพื่อดูหมวดสินค้า</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ SUPPLY STRIP ============ -->
+<section class="supply" aria-label="Brands">
+  <div class="shell supply__in">
+    <span class="supply__lbl" data-en="Brands we supply">แบรนด์ที่เราจัดหาให้</span>
+    <div class="marquee">
+      <div class="marquee__track" id="marquee">
+        <ul class="supply__list">
+          <li>Dell</li><li>HP</li><li>Lenovo</li><li>Cisco</li>
+          <li>Ubiquiti</li><li>Fortinet</li><li>Synology</li><li>Microsoft</li><li>APC</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PRODUCTS ============ -->
+<section class="sec" id="products">
+  <div class="shell">
+    <div class="sec__head obs">
+      <p class="eyebrow" data-en="Product categories">หมวดสินค้า</p>
+      <h2 class="h2" data-en="One supplier for the whole stack">สั่งจากที่เดียว จบทั้งระบบ</h2>
+      <p class="lede" data-en="From the desks out front to the rack out back. If it is not in stock we bring it in, with a firm lead time stated in the quote.">
+        ตั้งแต่เครื่องหน้าบ้านไปจนถึงตู้แร็คหลังบ้าน ถ้าไม่มีในสต็อก เราสั่งเข้ามาให้
+        พร้อมแจ้งระยะเวลาส่งมอบที่ชัดเจนตั้งแต่ตอนเสนอราคา
+      </p>
+      <span class="streak" aria-hidden="true"></span>
+    </div>
+    <div class="vals obs" id="prodGrid"></div>
+  </div>
+</section>
+
+<!-- ============ WHY ============ -->
+<section class="sec sec--tint" id="why">
+  <div class="shell">
+    <div class="sec__head obs">
+      <p class="eyebrow" data-en="Why us">ทำไมต้องเรา</p>
+      <h2 class="h2" data-en="Procurement without the friction">ฝ่ายจัดซื้อทำงานง่ายขึ้น</h2>
+      <p class="lede" data-en="Buying IT rarely goes wrong on price. It goes wrong on paperwork, warranty cover and hardware that does not match the spec. We built our process around those three.">
+        ปัญหาของการซื้ออุปกรณ์ไอทีมักไม่ใช่ราคา แต่เป็นเอกสาร การรับประกัน และของที่ไม่ตรงสเปก
+        เราออกแบบการทำงานมาเพื่อตัดสามเรื่องนี้ออกไป
+      </p>
+      <span class="streak" aria-hidden="true"></span>
+    </div>
+    <div class="vals obs">
+      <div class="val">
+        <p class="val__k"><span class="val__n">01</span><span data-en="Genuine">ของแท้</span></p>
+        <h3 class="val__t" data-en="Sourced through local distribution">สินค้าจากช่องทางจัดจำหน่ายในประเทศ</h3>
+        <p class="val__d" data-en="Everything comes through major Thai distributors. Each unit carries a local service-centre warranty and a serial number you can verify with the manufacturer.">รับสินค้าผ่านดิสทริบิวเตอร์รายใหญ่ในไทย ทุกชิ้นมีใบรับประกันศูนย์ไทย ตรวจสอบซีเรียลกับผู้ผลิตได้</p>
+      </div>
+      <div class="val">
+        <p class="val__k"><span class="val__n">02</span><span data-en="Paperwork">เอกสาร</span></p>
+        <h3 class="val__t" data-en="Full tax invoicing">ใบกำกับภาษีเต็มรูปแบบ</h3>
+        <p class="val__d" data-en="Quotation, delivery note and full tax invoice on every order, ready for your billing cycle and procurement system.">ออกใบเสนอราคา ใบส่งของ และใบกำกับภาษีครบชุด รองรับการวางบิลและระบบจัดซื้อขององค์กร</p>
+      </div>
+      <div class="val">
+        <p class="val__k"><span class="val__n">03</span><span data-en="Credit">เครดิต</span></p>
+        <h3 class="val__t" data-en="Purchase orders and credit terms">รองรับ PO และเครดิตเทอม</h3>
+        <p class="val__d" data-en="Order against a purchase order. Approved corporate accounts receive 30-day credit terms.">สั่งซื้อด้วยใบสั่งซื้อได้ ลูกค้าองค์กรที่ผ่านการอนุมัติรับเครดิตเทอม 30 วัน</p>
+      </div>
+      <div class="val">
+        <p class="val__k"><span class="val__n">04</span><span data-en="Licensing">ไลเซนส์</span></p>
+        <h3 class="val__t" data-en="Licences that survive an audit">ซอฟต์แวร์ถูกลิขสิทธิ์ ตรวจสอบได้</h3>
+        <p class="val__d" data-en="Every licence is registered to your organisation and supplied with proof of entitlement you can produce during an audit.">ไลเซนส์ทุกฉบับลงทะเบียนในชื่อองค์กรของคุณ พร้อมใบรับรองสิทธิ์สำหรับใช้ตอนถูกตรวจสอบ</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROCESS ============ -->
+<section class="sec" id="process">
+  <div class="shell">
+    <div class="sec__head obs">
+      <p class="eyebrow" data-en="How to order">ขั้นตอนสั่งซื้อ</p>
+      <h2 class="h2" data-en="From parts list to site">จากรายการสินค้าถึงหน้างาน</h2>
+    </div>
+    <div class="flow obs">
+      <div class="step">
+        <span class="streak" aria-hidden="true"></span>
+        <span class="step__n" data-en="Send the list">ส่งรายการ</span>
+        <h3 class="step__t" data-en="Send specs or a file">แจ้งสเปกหรือส่งไฟล์มา</h3>
+        <p class="step__d" data-en="Already have model numbers? Send them over. No spec yet and we will size it to your budget and workload.">มีรุ่นอยู่แล้วส่งมาได้เลย ยังไม่มีสเปกเราช่วยเลือกให้ตามงบและการใช้งาน</p>
+      </div>
+      <div class="step">
+        <span class="streak" aria-hidden="true"></span>
+        <span class="step__n" data-en="Quotation">เสนอราคา</span>
+        <h3 class="step__t" data-en="Quote back within 24 hours">รับใบเสนอราคาใน 24 ชั่วโมง</h3>
+        <p class="step__d" data-en="Price, lead time and warranty terms stated line by line, so nothing is discovered later.">ระบุราคา ระยะเวลาส่งมอบ และเงื่อนไขรับประกันของแต่ละรายการชัดเจน</p>
+      </div>
+      <div class="step">
+        <span class="streak" aria-hidden="true"></span>
+        <span class="step__n" data-en="Confirm">ยืนยัน</span>
+        <h3 class="step__t" data-en="Issue a PO and we order">ออก PO แล้วเราสั่งของ</h3>
+        <p class="step__d" data-en="Confirm by purchase order or email. We report status at every stage up to the delivery date.">ยืนยันสั่งซื้อผ่านใบสั่งซื้อหรืออีเมล เราแจ้งสถานะของทุกขั้นจนถึงวันส่ง</p>
+      </div>
+      <div class="step">
+        <span class="streak" aria-hidden="true"></span>
+        <span class="step__n" data-en="Delivery">ส่งมอบ</span>
+        <h3 class="step__t" data-en="Delivered with the paperwork">ส่งถึงที่ พร้อมเอกสารครบ</h3>
+        <p class="step__d" data-en="Arrives with the tax invoice and warranty documents. On-site installation can be added at quotation stage.">ส่งพร้อมใบกำกับภาษีและใบรับประกัน ต้องการติดตั้งหน้างานแจ้งได้ตั้งแต่ตอนเสนอราคา</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ QUOTE ============ -->
+<section class="quote" id="quote">
+  <svg class="quote__mark" viewBox="40 195 432 122" aria-hidden="true" focusable="false">
+    <path fill="#fff" d="M47 228 77 202H262L241 217H465L452 228Z"/>
+    <path fill="url(#markFadeA)" d="M47 297 78 276H330V297Z"/>
+    <path fill="url(#markFadeB)" d="M212 310 232 297H322L340 286H468V310Z"/>
+  </svg>
+  <div class="shell quote__grid">
+    <div class="obs">
+      <p class="eyebrow eyebrow--light" data-en="Request a quote">ขอใบเสนอราคา</p>
+      <h2 class="h2" data-en="Tell us what you need">บอกมาว่าต้องการอะไร</h2>
+      <p class="lede" data-en="Send the list as it is — model numbers optional. Our team replies by the next business day.">
+        ส่งรายการมาได้เลย ไม่ต้องมีเลขรุ่นครบก็ได้ ทีมงานจะติดต่อกลับภายในวันทำการถัดไป
+      </p>
+
+      <div class="contact">
+        <div class="contact__row">
+          <span class="contact__k" data-en="Phone">โทรศัพท์</span>
+          <a class="contact__v" href="tel:+66642133140">064-213-3140</a>
+        </div>
+        <div class="contact__row">
+          <span class="contact__k" data-en="Email">อีเมล</span>
+          <a class="contact__v" href="mailto:sales.primetradesystems@gmail.com">sales.primetradesystems@gmail.com</a>
+        </div>
+        <div class="contact__row">
+          <span class="contact__k">LINE</span>
+          <a class="contact__v" href="https://line.me/R/ti/p/@646zmnum" target="_blank" rel="noopener">@646zmnum</a>
+        </div>
+        <div class="contact__row">
+          <span class="contact__k" data-en="Office hours">เวลาทำการ</span>
+          <span class="contact__v" data-en="Mon–Fri 09:00–18:00">จันทร์–ศุกร์ 09:00–18:00</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card obs">
+      <span class="streak streak--light" aria-hidden="true"></span>
+      <h3 class="card__t" data-en="Send your list">ส่งรายการที่ต้องการ</h3>
+      <p class="card__s" data-en="Fill this in and the button opens your email app with the message ready to go.">กรอกแล้วกดปุ่ม ระบบจะเปิดโปรแกรมอีเมลพร้อมข้อความให้อัตโนมัติ</p>
+
+      <div class="field">
+        <label for="fCompany" data-en="Company">ชื่อบริษัท</label>
+        <input id="fCompany" type="text" autocomplete="organization" placeholder="บริษัท ตัวอย่าง จำกัด" data-en-ph="Example Co., Ltd.">
+      </div>
+      <div class="field">
+        <label for="fName" data-en="Contact name">ชื่อผู้ติดต่อ</label>
+        <input id="fName" type="text" autocomplete="name" placeholder="ชื่อ–นามสกุล" data-en-ph="Full name">
+      </div>
+      <div class="field">
+        <label for="fContact" data-en="Email or phone">อีเมลหรือเบอร์ติดต่อกลับ</label>
+        <input id="fContact" type="text" placeholder="name@company.co.th หรือ 08x-xxx-xxxx" data-en-ph="name@company.com or +66 8x xxx xxxx">
+      </div>
+      <div class="field">
+        <label for="fItems" data-en="Items required">รายการที่ต้องการ</label>
+        <textarea id="fItems" placeholder="เช่น&#10;โน้ตบุ๊ก i5 16GB จำนวน 10 เครื่อง&#10;สวิตช์ 24 พอร์ต PoE จำนวน 2 ตัว&#10;Microsoft 365 Business 20 ผู้ใช้" data-en-ph="For example&#10;10 x laptop, i5 / 16GB&#10;2 x 24-port PoE switch&#10;Microsoft 365 Business, 20 users"></textarea>
+      </div>
+
+      <button class="btn btn--primary btn--wide" id="sendBtn" type="button" data-en="Send quote request">ส่งคำขอใบเสนอราคา</button>
+      <p class="note" data-en="This opens your email app with the details filled in. Nothing is sent until you press send.">
+        ปุ่มนี้จะเปิดโปรแกรมอีเมลในเครื่องคุณพร้อมข้อความที่กรอกไว้ ยังไม่ส่งจนกว่าคุณจะกดส่งเอง
+      </p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="ftr">
+  <span class="streak streak--light" aria-hidden="true"></span>
+  <div class="shell ftr__in">
+    <div>
+      <img class="ftr__logo" src="logo-white.png" alt="PRIME TRADE SYSTEM" width="1440" height="303" loading="lazy">
+      <span data-en="&copy; <span id=&quot;yr&quot;>2026</span> Prime Trade System Co., Ltd. &middot; Company registration 0255569000443">© <span id="yr">2026</span> บริษัท ไพร์ม เทรด ซิสเต็ม จำกัด · ทะเบียนนิติบุคคล 0255569000443</span>
+    </div>
+    <div class="ftr__links">
+      <a href="#products" data-en="Products">สินค้า</a>
+      <a href="#process" data-en="How to order">ขั้นตอนสั่งซื้อ</a>
+      <a href="#quote" data-en="Contact">ติดต่อ</a>
+    </div>
+  </div>
+</footer>
+
+<a class="fab" id="fab" href="https://line.me/R/ti/p/@646zmnum" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 3C6.5 3 2 6.6 2 11c0 3.9 3.5 7.2 8.3 7.9.3.1.8.2.9.5.1.3.1.7 0 1l-.1.9c0 .3-.2 1 .9.5s6-3.5 8.2-6.1C21.7 14.1 22 12.6 22 11c0-4.4-4.5-8-10-8Z"/></svg>
+  <span data-en="Chat on LINE">แชทผ่าน LINE</span>
+</a>
+
+<script>
+(function(){
+  "use strict";
+
+  var MAIL   = "sales.primetradesystems@gmail.com";
+  var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var lang   = "th";
+
+  /* ---------- category data (bilingual) ---------- */
+  var CATS = [
+    { sku:"CPU-WS", icon:"i-cpu",
+      th:{ title:"คอมพิวเตอร์และโน้ตบุ๊ก",
+           desc:"เครื่องสำนักงาน โน้ตบุ๊กองค์กร เวิร์กสเตชันสำหรับงานกราฟิกและงานคำนวณหนัก จัดสเปกตามงบได้",
+           items:["Notebook","Desktop","Workstation","All-in-One","จอมอนิเตอร์"] },
+      en:{ title:"Computers and laptops",
+           desc:"Office desktops, business laptops and workstations for design and compute-heavy work, specced to your budget.",
+           items:["Notebook","Desktop","Workstation","All-in-One","Monitors"] } },
+
+    { sku:"MOB-TAB", icon:"i-mob",
+      th:{ title:"โทรศัพท์และแท็บเล็ต",
+           desc:"สมาร์ตโฟนและแท็บเล็ตสำหรับใช้งานในองค์กร พร้อมอุปกรณ์เสริมและเคสกันกระแทกสำหรับทีมงานภาคสนาม",
+           items:["สมาร์ตโฟน","แท็บเล็ต","เคสกันกระแทก","ปากกาสไตลัส","อุปกรณ์เสริม"] },
+      en:{ title:"Phones and tablets",
+           desc:"Business smartphones and tablets, with accessories and rugged cases for teams working out in the field.",
+           items:["Smartphone","Tablet","Rugged case","Stylus","Accessories"] } },
+
+    { sku:"NET-SW", icon:"i-net",
+      th:{ title:"อุปกรณ์เครือข่าย",
+           desc:"สวิตช์ เราเตอร์ ไฟร์วอลล์ แอ็กเซสพอยต์ และงานเดินสายแลนทั้งระบบ ออกแบบให้รองรับการขยายในอนาคต",
+           items:["Switch","Router","Firewall","Access Point","สาย LAN / Rack"] },
+      en:{ title:"Network equipment",
+           desc:"Switches, routers, firewalls, access points and structured cabling, designed with room to grow into.",
+           items:["Switch","Router","Firewall","Access Point","Cabling / Rack"] } },
+
+    { sku:"LIC-SW", icon:"i-lic",
+      th:{ title:"ไลเซนส์ซอฟต์แวร์",
+           desc:"ลิขสิทธิ์แท้สำหรับองค์กร ทั้งแบบรายปีและถาวร ลงทะเบียนในชื่อบริษัทคุณ พร้อมเอกสารยืนยันสิทธิ์",
+           items:["Windows","Microsoft 365","Antivirus","Adobe","Autodesk"] },
+      en:{ title:"Software licensing",
+           desc:"Genuine business licences, subscription or perpetual, registered to your company with proof of entitlement.",
+           items:["Windows","Microsoft 365","Antivirus","Adobe","Autodesk"] } },
+
+    { sku:"SRV-ST", icon:"i-srv",
+      th:{ title:"เซิร์ฟเวอร์และสตอเรจ",
+           desc:"เซิร์ฟเวอร์แร็คและทาวเวอร์ ระบบจัดเก็บข้อมูล NAS และโซลูชันสำรองข้อมูลสำหรับธุรกิจ",
+           items:["Server","NAS","SAN","Backup","UPS"] },
+      en:{ title:"Servers and storage",
+           desc:"Rack and tower servers, NAS storage and backup systems sized for business workloads.",
+           items:["Server","NAS","SAN","Backup","UPS"] } },
+
+    { sku:"SEC-CAM", icon:"i-sec",
+      th:{ title:"ระบบกล้องและความปลอดภัย",
+           desc:"กล้องวงจรปิดความละเอียดสูง เครื่องบันทึก และระบบควบคุมการเข้าออก ติดตั้งพร้อมสอนใช้งาน",
+           items:["CCTV","NVR","Access Control","ระบบสแกนนิ้ว"] },
+      en:{ title:"Surveillance and access control",
+           desc:"High-resolution cameras, recorders and door access systems, installed and handed over with training.",
+           items:["CCTV","NVR","Access Control","Biometrics"] } },
+
+    { sku:"GAM-HH", icon:"i-gam",
+      th:{ title:"เครื่องเล่นเกมพกพา",
+           desc:"เครื่องเล่นเกมพกพาและอุปกรณ์เสริม สินค้าเครื่องศูนย์ไทยมีใบรับประกัน สั่งจำนวนมากสำหรับหน้าร้านได้",
+           items:["เครื่องเล่นพกพา","จอยคอนโทรลเลอร์","เคสและกระเป๋า","การ์ดความจำ","อุปกรณ์ชาร์จ"] },
+      en:{ title:"Handheld gaming",
+           desc:"Handheld consoles and accessories, local-warranty stock, available in retail quantities.",
+           items:["Handheld console","Controllers","Cases","Memory cards","Chargers"] } },
+
+    { sku:"PRP-ACC", icon:"i-prp",
+      th:{ title:"อุปกรณ์ต่อพ่วงและของใช้สิ้นเปลือง",
+           desc:"ปริ้นเตอร์ หมึก อุปกรณ์ต่อพ่วง และของใช้ประจำออฟฟิศ สั่งประจำได้ ไม่ต้องขอราคาใหม่ทุกครั้ง",
+           items:["Printer","หมึกพิมพ์","Keyboard / Mouse","Docking","สายและอะแดปเตอร์"] },
+      en:{ title:"Peripherals and consumables",
+           desc:"Printers, ink, accessories and everyday office supplies on a standing order, so you are not re-quoting every month.",
+           items:["Printer","Ink and toner","Keyboard / Mouse","Docking","Cables and adapters"] } }
+  ];
+
+  /* ---------- build the panel ---------- */
+  var portsEl = document.getElementById("ports");
+  var frag = document.createDocumentFragment();
+
+  CATS.forEach(function(c){
+    var b = document.createElement("button");
+    b.type = "button";
+    b.className = "port";
+    b.dataset.sku = c.sku;
+    b.setAttribute("aria-label", c.sku);
+    b.innerHTML =
+      '<span class="port__bevel"></span>' +
+      '<span class="jack"></span>' +
+      '<span class="port__led"></span>' +
+      '<span class="port__sku">' + c.sku + '</span>';
+    frag.appendChild(b);
+  });
+  portsEl.appendChild(frag);
+
+  var ports = Array.prototype.slice.call(portsEl.children);
+  var byPort = {};
+  ports.forEach(function(p, i){ byPort[p.dataset.sku] = CATS[i]; });
+
+  if (reduce){
+    ports.forEach(function(p){ p.classList.add("is-on"); });
+  } else {
+    ports.forEach(function(p, i){
+      setTimeout(function(){ p.classList.add("is-on"); }, 560 + i * 95);
+    });
+  }
+
+  /* ---------- readout ---------- */
+  var readout = document.getElementById("readout");
+  var rKey    = document.getElementById("rKey");
+  var rBody   = readout.querySelector("div:last-child");
+  var currentCat = null;
+
+  function paintReadout(cat){
+    var t = cat[lang];
+    rKey.innerHTML =
+      '<svg class="readout__ico" aria-hidden="true" focusable="false"><use href="#' + cat.icon + '"></use></svg>' +
+      '<span class="readout__sku">' + cat.sku + '</span>';
+    rBody.innerHTML =
+      '<div class="readout__body"><h3 class="readout__t"></h3>' +
+      '<p class="readout__d"></p><div class="readout__items"></div></div>';
+    rBody.querySelector(".readout__t").textContent = t.title;
+    rBody.querySelector(".readout__d").textContent = t.desc;
+    var box = rBody.querySelector(".readout__items");
+    t.items.forEach(function(x){
+      var s = document.createElement("span");
+      s.textContent = x;
+      box.appendChild(s);
+    });
+  }
+
+  function show(cat){
+    if (currentCat === cat) return;
+    currentCat = cat;
+    ports.forEach(function(p){
+      p.classList.toggle("is-active", byPort[p.dataset.sku] === cat);
+    });
+    paintReadout(cat);
+  }
+
+  ports.forEach(function(p){
+    var cat = byPort[p.dataset.sku];
+    p.addEventListener("mouseenter", function(){ show(cat); });
+    p.addEventListener("focus",      function(){ show(cat); });
+    p.addEventListener("click",      function(){ show(cat); });
+  });
+
+  setTimeout(function(){ if (!currentCat) show(CATS[0]); }, reduce ? 0 : 1500);
+
+  /* ---------- product grid ---------- */
+  var grid = document.getElementById("prodGrid");
+  CATS.forEach(function(c, i){
+    var d = document.createElement("div");
+    d.className = "val";
+    d.dataset.sku = c.sku;
+    d.innerHTML = '<p class="val__k"><span class="val__n">' + ("0" + (i + 1)) + '</span><span class="val__sku"></span></p>' +
+      '<h3 class="val__t"></h3><p class="val__d"></p>' +
+      '<svg class="val__ico" aria-hidden="true" focusable="false"><use href="#' + c.icon + '"></use></svg>';
+    grid.appendChild(d);
+  });
+
+  function paintGrid(){
+    CATS.forEach(function(c){
+      var d = grid.querySelector('[data-sku="' + c.sku + '"]');
+      d.querySelector(".val__sku").textContent = c.sku;
+      d.querySelector(".val__t").textContent = c[lang].title;
+      d.querySelector(".val__d").textContent = c[lang].desc;
+    });
+  }
+
+  /* ---------- brand marquee: duplicate the list for a seamless loop ---------- */
+  var track = document.getElementById("marquee");
+  if (!reduce){
+    var clone = track.firstElementChild.cloneNode(true);
+    clone.setAttribute("aria-hidden", "true");
+    track.appendChild(clone);
+  }
+
+  /* ---------- language switch ---------- */
+  var textNodes = Array.prototype.slice.call(document.querySelectorAll("[data-en]"));
+  textNodes.forEach(function(el){ el.dataset.th = el.innerHTML; });
+
+  var phNodes = Array.prototype.slice.call(document.querySelectorAll("[data-en-ph]"));
+  phNodes.forEach(function(el){ el.dataset.thPh = el.placeholder; });
+
+  var langBtns = Array.prototype.slice.call(document.querySelectorAll(".lang__b"));
+
+  function setLang(next){
+    lang = next;
+    document.documentElement.lang = next;
+
+    textNodes.forEach(function(el){
+      el.innerHTML = (next === "en") ? el.dataset.en : el.dataset.th;
+    });
+    phNodes.forEach(function(el){
+      el.placeholder = (next === "en") ? el.getAttribute("data-en-ph") : el.dataset.thPh;
+    });
+
+    langBtns.forEach(function(b){
+      var on = b.dataset.lang === next;
+      b.classList.toggle("is-on", on);
+      b.setAttribute("aria-pressed", on ? "true" : "false");
+    });
+
+    paintGrid();
+    if (currentCat) paintReadout(currentCat);
+
+    var yr = document.getElementById("yr");
+    if (yr) yr.textContent = new Date().getFullYear();
+  }
+
+  langBtns.forEach(function(b){
+    b.addEventListener("click", function(){ setLang(b.dataset.lang); });
+  });
+
+  var navLang = (navigator.language || "th").toLowerCase();
+  setLang(navLang.indexOf("th") === 0 ? "th" : "en");
+
+  /* ---------- mobile menu ---------- */
+  var menuBtn = document.getElementById("menuBtn");
+  var mnav    = document.getElementById("mnav");
+  function setMenu(open){
+    mnav.classList.toggle("is-open", open);
+    menuBtn.setAttribute("aria-expanded", open ? "true" : "false");
+  }
+  menuBtn.addEventListener("click", function(){ setMenu(!mnav.classList.contains("is-open")); });
+  mnav.addEventListener("click", function(e){ if (e.target.closest("a")) setMenu(false); });
+
+  /* ---------- scroll reveal ---------- */
+  if ("IntersectionObserver" in window && !reduce){
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (e.isIntersecting){ e.target.classList.add("seen"); io.unobserve(e.target); }
+      });
+    }, { threshold:.12, rootMargin:"0px 0px -60px 0px" });
+    document.querySelectorAll(".obs").forEach(function(n){ io.observe(n); });
+  } else {
+    document.querySelectorAll(".obs").forEach(function(n){ n.classList.add("seen"); });
+  }
+
+  /* ---------- active nav link + floating LINE button ---------- */
+  var navLinks = Array.prototype.slice.call(document.querySelectorAll(".nav a"));
+  var fab = document.getElementById("fab");
+  var quoteSec = document.getElementById("quote");
+
+  if ("IntersectionObserver" in window){
+    var navIo = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        if (!e.isIntersecting) return;
+        navLinks.forEach(function(a){
+          a.classList.toggle("is-here", a.getAttribute("href") === "#" + e.target.id);
+        });
+      });
+    }, { rootMargin:"-45% 0px -50% 0px" });
+    ["products","why","process","quote"].forEach(function(id){
+      navIo.observe(document.getElementById(id));
+    });
+  }
+
+  function onScroll(){
+    var past = window.scrollY > window.innerHeight * .6;
+    var r = quoteSec.getBoundingClientRect();
+    var inQuote = r.top < window.innerHeight && r.bottom > 0;
+    fab.classList.toggle("is-show", past && !inQuote);
+  }
+  window.addEventListener("scroll", onScroll, { passive:true });
+  onScroll();
+
+  /* ---------- quote request → mailto ---------- */
+  document.getElementById("sendBtn").addEventListener("click", function(){
+    var v = function(id){ return document.getElementById(id).value.trim(); };
+    var company = v("fCompany"), name = v("fName"),
+        contact = v("fContact"), items = v("fItems");
+
+    var L = (lang === "en")
+      ? { subj:"Quotation request", co:"Company", nm:"Contact", ct:"Reply to", it:"Items required" }
+      : { subj:"ขอใบเสนอราคา", co:"บริษัท", nm:"ผู้ติดต่อ", ct:"ติดต่อกลับ", it:"รายการที่ต้องการ" };
+
+    var subject = L.subj + (company ? " — " + company : "");
+    var body = L.co + ": " + (company || "-") + "\n" +
+               L.nm + ": " + (name    || "-") + "\n" +
+               L.ct + ": " + (contact || "-") + "\n\n" +
+               L.it + ":\n" + (items  || "-") + "\n";
+
+    window.location.href = "mailto:" + MAIL +
+      "?subject=" + encodeURIComponent(subject) +
+      "&body="    + encodeURIComponent(body);
+  });
+})();
+</script>
+</body>
+</html>
